@@ -6,7 +6,7 @@
     <title>Lakeside Laundromat</title>
     <meta
       name="description"
-      content="Fast, clean, neighborhood laundromat information for Lakeside Laundromat."
+      content="Clean, convenient laundromat homepage with modern design, simple booking call-to-actions, and neighborhood service information."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,196 +17,161 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="container nav-shell">
-        <a class="brand" href="#top" aria-label="Lakeside Laundromat home">
-          <span class="brand-mark">LL</span>
-          <span class="brand-text">
-            <strong>Lakeside</strong>
-            <span>Laundromat</span>
-          </span>
-        </a>
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-nav"
-        >
-          Menu
-        </button>
-
-        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-          <a href="#services">Services</a>
-          <a href="#hours">Hours</a>
-          <a href="#why-us">Why Us</a>
-          <a href="#visit">Visit</a>
-        </nav>
-      </div>
-    </header>
-
     <main id="top">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Neighborhood laundry made simple</p>
-            <h1>Clean machines, quick loads, and an easy stop in your week.</h1>
-            <p class="hero-text">
-              Lakeside Laundromat is a simple, dependable place to wash, dry, and
-              get back to your day. This starter site gives customers the
-              essentials they need fast: hours, services, and location info.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#visit">Plan Your Visit</a>
-              <a class="button button-secondary" href="#hours">See Hours</a>
+      <section class="hero-shell">
+        <div class="container hero-panel">
+          <header class="site-header">
+            <div class="nav-shell">
+              <a class="brand" href="#top" aria-label="Lakeside Laundromat home">
+                <span class="brand-mark">LL</span>
+                <span class="brand-text">
+                  <strong>Lakeside</strong>
+                  <span>Laundromat</span>
+                </span>
+              </a>
+
+              <button
+                class="nav-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="site-nav"
+              >
+                Menu
+              </button>
+
+              <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+                <a href="#pricing">Pricing</a>
+                <a href="#services">Services</a>
+                <a href="#stories">Stories</a>
+                <a href="#faq">FAQs</a>
+                <a href="#contact">Contact</a>
+              </nav>
+
+              <a class="nav-cta" href="#contact">
+                <span>Book Now</span>
+                <span class="nav-cta-icon" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </header>
+
+          <div class="hero-content">
+            <a class="phone-pill" href="tel:+15551234567">
+              <span aria-hidden="true">◔</span>
+              <span>+1 (555) 234-5678</span>
+            </a>
+
+            <div class="hero-copy">
+              <h1>
+                Premium Laundry Care
+                <br />
+                for Busy Days
+                <span>Fast & Flawless!</span>
+              </h1>
+              <p class="hero-text">
+                Lakeside Laundromat offers a polished neighborhood laundry
+                experience with quick turnaround, dependable machines, and a
+                clean space that makes weekly wash day easier.
+              </p>
+              <a class="hero-button" href="#contact">
+                <span>Book Now</span>
+                <span class="hero-button-icon" aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
 
-          <aside class="hero-card" aria-label="Quick info">
-            <p class="card-label">Quick Info</p>
-            <dl class="info-list">
-              <div>
-                <dt>Hours</dt>
-                <dd>6:00 AM - 10:00 PM daily</dd>
-              </div>
-              <div>
-                <dt>Last Wash</dt>
-                <dd>9:00 PM</dd>
-              </div>
-              <div>
-                <dt>Location</dt>
-                <dd>123 Lake Street, Your Town</dd>
-              </div>
-              <div>
-                <dt>Phone</dt>
-                <dd>(555) 123-4567</dd>
-              </div>
-            </dl>
-          </aside>
+          <section class="mosaic" aria-label="Laundry service gallery">
+            <figure class="mosaic-card mosaic-card-sm">
+              <img
+                src="https://images.unsplash.com/photo-1521656693074-0ef32e80a5d5?auto=format&fit=crop&w=600&q=80"
+                alt="Folded towels ready for laundry service"
+              />
+            </figure>
+            <figure class="mosaic-card mosaic-card-lg">
+              <img
+                src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=900&q=80"
+                alt="Bright laundry room with washing machine"
+              />
+            </figure>
+            <figure class="mosaic-card mosaic-card-md">
+              <img
+                src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=800&q=80"
+                alt="Clothes being placed into a washing machine"
+              />
+            </figure>
+            <figure class="mosaic-card mosaic-card-xl">
+              <img
+                src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=900&q=80"
+                alt="Laundry spinning inside a washer"
+              />
+            </figure>
+            <figure class="mosaic-card mosaic-card-sm mosaic-card-tall">
+              <img
+                src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=700&q=80"
+                alt="Fresh clothes hanging neatly"
+              />
+            </figure>
+          </section>
         </div>
       </section>
 
-      <section class="feature-strip" aria-label="Highlights">
-        <div class="container feature-strip-grid">
-          <p>Clean facility</p>
-          <p>Fast washers</p>
-          <p>Plenty of dryers</p>
-          <p>Easy parking</p>
+      <section class="content-section" id="pricing">
+        <div class="container section-copy-block">
+          <p class="section-label">Pricing</p>
+          <h2>Simple sample content while we match the design first.</h2>
+          <p>
+            This home page now follows the visual direction of your reference.
+            We can replace the sample wording, pricing, photos, and call-to-action
+            destinations once you are happy with the look.
+          </p>
         </div>
       </section>
 
-      <section class="section" id="services">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">Services</p>
-            <h2>Everything customers usually want to know at a glance.</h2>
-          </div>
-
-          <div class="cards">
-            <article class="card">
-              <h3>Self-Service Laundry</h3>
-              <p>
-                Front-load washers and high-capacity dryers for quick, reliable
-                wash days.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Large Loads</h3>
-              <p>
-                Space for comforters, family-sized laundry days, and oversized
-                loads.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Convenient Visit</h3>
-              <p>
-                Straightforward pricing, simple layout, and a friendly stop for
-                regular weekly laundry.
-              </p>
-            </article>
-          </div>
+      <section class="content-section" id="services">
+        <div class="container mini-grid">
+          <article class="mini-card">
+            <h3>Wash & Fold</h3>
+            <p>Fast weekly laundry support with careful handling and simple pickup-ready flow.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Dry Cleaning</h3>
+            <p>Sample service copy for garments that need a more polished finish and extra care.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Pickup & Delivery</h3>
+            <p>Optional sample section to mirror the style of the inspiration layout before real content arrives.</p>
+          </article>
         </div>
       </section>
 
-      <section class="section section-soft" id="hours">
-        <div class="container two-column">
-          <div>
-            <p class="eyebrow">Hours</p>
-            <h2>Consistent daily hours make planning easy.</h2>
-            <p>
-              This first version uses placeholder business details that we can
-              swap for your exact hours, address, pricing, and amenities.
-            </p>
-          </div>
-
-          <div class="schedule-card">
-            <div class="schedule-row">
-              <span>Monday - Sunday</span>
-              <strong>6:00 AM - 10:00 PM</strong>
-            </div>
-            <div class="schedule-row">
-              <span>Last wash starts</span>
-              <strong>9:00 PM</strong>
-            </div>
-            <div class="schedule-row">
-              <span>Best for quick trips</span>
-              <strong>Early morning & midday</strong>
-            </div>
-          </div>
+      <section class="content-section content-section-muted" id="stories">
+        <div class="container section-copy-block">
+          <p class="section-label">Stories</p>
+          <h2>Built as a polished landing page first.</h2>
+          <p>
+            The reference image is very hero-driven, so I kept the lower sections
+            lighter and secondary. We can expand the rest of the homepage after
+            this top section feels right.
+          </p>
         </div>
       </section>
 
-      <section class="section" id="why-us">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">Why Us</p>
-            <h2>Built to feel practical, welcoming, and easy to use.</h2>
-          </div>
-
-          <div class="benefits">
-            <article>
-              <h3>Fast information</h3>
-              <p>
-                Visitors should be able to find your hours and location in a few
-                seconds without hunting around.
-              </p>
-            </article>
-            <article>
-              <h3>Mobile-friendly</h3>
-              <p>
-                Most customers will check the site from their phone before
-                heading over.
-              </p>
-            </article>
-            <article>
-              <h3>Easy to maintain</h3>
-              <p>
-                This foundation stays lightweight so future edits are simple and
-                GitHub Pages hosting is painless.
-              </p>
-            </article>
-          </div>
+      <section class="content-section" id="faq">
+        <div class="container section-copy-block">
+          <p class="section-label">FAQs</p>
+          <h2>Ready for the next content pass.</h2>
+          <p>
+            Once you approve the design, I can build out the remaining sections
+            in the same visual language and then swap in your real business copy.
+          </p>
         </div>
       </section>
 
-      <section class="section section-accent" id="visit">
-        <div class="container visit-grid">
-          <div>
-            <p class="eyebrow eyebrow-light">Visit</p>
-            <h2>Ready for your real business details.</h2>
-            <p>
-              Once you send the exact address, hours, phone number, services,
-              and any pricing or amenities, I can turn this into a finished
-              public site.
-            </p>
-          </div>
-
-          <div class="visit-card">
-            <p><strong>Lakeside Laundromat</strong></p>
-            <p>123 Lake Street</p>
-            <p>Your Town, ST 00000</p>
-            <p>(555) 123-4567</p>
-          </div>
+      <section class="content-section content-section-muted" id="contact">
+        <div class="container section-copy-block">
+          <p class="section-label">Contact</p>
+          <h2>Lakeside Laundromat</h2>
+          <p>123 Lake Street, Your Town, ST 00000</p>
+          <p>(555) 234-5678</p>
         </div>
       </section>
     </main>
