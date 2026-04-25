@@ -157,7 +157,7 @@ h3 {
 }
 
 .hero-shell {
-  padding: 1.5rem;
+  padding: 0.6rem;
 }
 
 .hero-panel {
@@ -373,7 +373,7 @@ h3 {
 
 @media (max-width: 760px) {
   .hero-shell {
-    padding: 0.9rem;
+    padding: 0.45rem;
   }
 
   .hero-panel {
