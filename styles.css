@@ -251,6 +251,53 @@ main {
   padding: 4.5rem 0;
 }
 
+.about-section {
+  padding: 6rem 0 2.5rem;
+  background: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.about-panel {
+  background: #eaf2df;
+  border-radius: 18px;
+  padding: 3rem 3.25rem;
+  transform: rotate(-2deg);
+  transform-origin: center;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.3fr);
+  gap: 2.5rem;
+  align-items: start;
+  transform: rotate(2deg);
+}
+
+.about-label {
+  margin-bottom: 0.65rem;
+  color: #6a7968;
+  font-size: 1rem;
+}
+
+.about-intro h2 {
+  color: #243222;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.02;
+  font-family: "Roboto Slab", serif;
+}
+
+.about-copy {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.about-copy p {
+  color: #40523d;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
 .amenities-section {
   margin-top: -2px;
   padding: 8.6rem 0 5.5rem;
@@ -418,6 +465,10 @@ main {
   .amenities-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 760px) {
@@ -489,6 +540,18 @@ main {
     width: 230px;
     height: 230px;
     border-radius: 18px;
+  }
+
+  .about-section {
+    padding: 4rem 0 2rem;
+  }
+
+  .about-panel {
+    padding: 2rem 1.4rem;
+  }
+
+  .about-grid {
+    gap: 1.5rem;
   }
 
   .amenities-section {
