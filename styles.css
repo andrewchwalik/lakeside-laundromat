@@ -160,6 +160,11 @@ h3 {
   padding: 0.6rem;
 }
 
+.hero-shell .container {
+  width: calc(100vw - 1.2rem);
+  max-width: none;
+}
+
 .hero-panel {
   background: linear-gradient(180deg, #dce4ff 0%, #ebefff 100%);
   border-radius: var(--radius-xl);
@@ -374,6 +379,10 @@ h3 {
 @media (max-width: 760px) {
   .hero-shell {
     padding: 0.45rem;
+  }
+
+  .hero-shell .container {
+    width: calc(100vw - 0.9rem);
   }
 
   .hero-panel {
