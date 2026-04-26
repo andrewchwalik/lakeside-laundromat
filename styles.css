@@ -202,10 +202,11 @@ main {
 }
 
 .photo-marquee {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   margin: 0 -3.2rem;
   margin-bottom: 0;
-  padding-bottom: 0;
+  padding-bottom: 2rem;
   position: relative;
   z-index: 2;
 }
@@ -224,7 +225,7 @@ main {
   height: 290px;
   overflow: hidden;
   background: #cdeffc;
-  box-shadow: var(--shadow);
+  box-shadow: 0 18px 42px rgba(11, 181, 239, 0.1);
   border-radius: 24px;
 }
 
@@ -563,6 +564,7 @@ main {
   .photo-marquee {
     margin: 0 -1.8rem;
     margin-bottom: -2.8rem;
+    padding-bottom: 1.5rem;
   }
 
   .photo-track {
