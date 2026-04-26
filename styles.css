@@ -149,23 +149,11 @@ main {
 
 .hero-panel {
   position: relative;
-  background: linear-gradient(180deg, #d9f5ff 0%, #eefbff 70%, #f8fdff 100%);
+  background: linear-gradient(180deg, #d9f5ff 0%, #eefbff 52%, #ffffff 78%, #ffffff 100%);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   padding: 1.9rem 1.9rem 0;
   overflow: visible;
   min-height: calc(100vh - 3rem);
-}
-
-.hero-panel::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 14rem;
-  background: linear-gradient(180deg, rgba(248, 253, 255, 0) 0%, rgba(248, 253, 255, 0.96) 78%, #ffffff 100%);
-  pointer-events: none;
-  z-index: 1;
 }
 
 .site-header {
@@ -216,7 +204,7 @@ main {
 .photo-marquee {
   overflow: hidden;
   margin: 0 -3.2rem;
-  margin-bottom: -4.4rem;
+  margin-bottom: 0;
   padding-bottom: 0;
   position: relative;
   z-index: 2;
@@ -252,20 +240,11 @@ main {
 }
 
 .about-section {
-  margin-top: -5.5rem;
-  padding: 10rem 0 4.5rem;
+  margin-top: 0;
+  padding: 6.5rem 0 4.5rem;
   background: transparent;
   position: relative;
   z-index: 1;
-}
-
-.about-section::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 12rem;
-  background: linear-gradient(180deg, #f4fcff 0%, #ffffff 100%);
-  z-index: -1;
 }
 
 .about-panel {
@@ -562,8 +541,8 @@ main {
   }
 
   .about-section {
-    margin-top: -3rem;
-    padding: 6.5rem 0 3rem;
+    margin-top: 0;
+    padding: 4.5rem 0 3rem;
   }
 
   .about-panel {
