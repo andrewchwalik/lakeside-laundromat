@@ -290,10 +290,35 @@ main {
 
 .amenities-section {
   margin-top: -2px;
-  padding: 7.2rem 0 5.5rem;
+  padding: 9.5rem 0 8.5rem;
   background: #0bb5ef;
   position: relative;
   z-index: 1;
+  overflow: hidden;
+}
+
+.amenities-section::before,
+.amenities-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 110px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+.amenities-section::before {
+  top: 0;
+  transform: translateY(-98%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,78 C150,18 300,120 500,78 C720,28 930,16 1120,62 C1270,98 1350,96 1440,80 L1440,140 L0,140 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,92 C180,34 320,124 520,92 C750,54 960,36 1160,82 C1290,112 1365,110 1440,98 L1440,140 L0,140 Z'/%3E%3C/svg%3E");
+}
+
+.amenities-section::after {
+  bottom: 0;
+  transform: translateY(98%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,60 C170,110 315,8 510,48 C760,96 980,120 1190,70 C1290,46 1370,34 1440,46 L1440,0 L0,0 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,48 C180,92 340,0 540,34 C790,82 1000,102 1208,58 C1300,38 1378,24 1440,34 L1440,0 L0,0 Z'/%3E%3C/svg%3E");
 }
 
 .amenities-shell {
@@ -365,33 +390,6 @@ main {
   font-size: clamp(1rem, 1.05vw, 1.2rem);
   line-height: 1.16;
   font-weight: 600;
-}
-
-.amenities-gallery {
-  background: #ffffff;
-  padding: 0 0 2rem;
-}
-
-.gallery-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  width: calc(100% - 1.9rem);
-  margin: 0 auto;
-}
-
-.gallery-card {
-  margin: 0;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 24px;
-}
-
-.gallery-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 .content-section-muted {
@@ -499,10 +497,6 @@ main {
   .about-grid {
     grid-template-columns: 1fr;
   }
-
-  .gallery-strip {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 760px) {
@@ -591,7 +585,12 @@ main {
   }
 
   .amenities-section {
-    padding: 4.8rem 0 4rem;
+    padding: 6.5rem 0 6rem;
+  }
+
+  .amenities-section::before,
+  .amenities-section::after {
+    height: 72px;
   }
 
   .amenities-grid {
