@@ -136,11 +136,11 @@ h3 {
 }
 
 .hero-shell {
-  padding: 0.6rem;
+  padding: 0.95rem;
 }
 
 .hero-shell .container {
-  width: calc(100vw - 1.2rem);
+  width: calc(100vw - 1.9rem);
   max-width: none;
 }
 
@@ -160,7 +160,7 @@ h3 {
   display: grid;
   justify-items: center;
   text-align: center;
-  padding: 1.9rem 0 3rem;
+  padding: 3.5rem 0 3rem;
 }
 
 .hero-copy {
@@ -348,11 +348,11 @@ h3 {
 
 @media (max-width: 760px) {
   .hero-shell {
-    padding: 0.45rem;
+    padding: 0.7rem;
   }
 
   .hero-shell .container {
-    width: calc(100vw - 0.9rem);
+    width: calc(100vw - 1.4rem);
   }
 
   .hero-panel {
