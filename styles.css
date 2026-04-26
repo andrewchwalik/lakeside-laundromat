@@ -253,7 +253,7 @@ main {
 
 .about-section {
   margin-top: -5.5rem;
-  padding: 10rem 0 2.5rem;
+  padding: 10rem 0 4.5rem;
   background: transparent;
   position: relative;
   z-index: 1;
@@ -310,7 +310,7 @@ main {
 
 .amenities-section {
   margin-top: -2px;
-  padding: 8.6rem 0 5.5rem;
+  padding: 7.2rem 0 5.5rem;
   background: #0bb5ef;
   position: relative;
   z-index: 1;
@@ -344,6 +344,10 @@ main {
 
 .amenity-item {
   color: #ffffff;
+  background: rgba(234, 250, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 22px;
+  padding: 1.35rem 0.9rem 1.2rem;
 }
 
 .amenity-icon {
@@ -352,7 +356,7 @@ main {
   margin: 0 auto 1rem;
   display: grid;
   place-items: center;
-  color: #eafaff;
+  color: #f7fdff;
 }
 
 .amenity-icon svg {
@@ -559,7 +563,7 @@ main {
 
   .about-section {
     margin-top: -3rem;
-    padding: 6.5rem 0 2rem;
+    padding: 6.5rem 0 3rem;
   }
 
   .about-panel {
@@ -571,7 +575,7 @@ main {
   }
 
   .amenities-section {
-    padding: 5.6rem 0 4rem;
+    padding: 4.8rem 0 4rem;
   }
 
   .amenities-grid {
