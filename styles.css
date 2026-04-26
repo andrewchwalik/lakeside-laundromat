@@ -308,17 +308,21 @@ main {
 }
 
 .amenities-shell {
-  text-align: center;
+  text-align: left;
+}
+
+.amenities-heading {
+  max-width: 420px;
 }
 
 .amenities-shell h2 {
   max-width: none;
-  margin: 0 auto;
+  margin: 0;
   color: #146078;
   font-size: clamp(2rem, 3.2vw, 3rem);
   line-height: 1.02;
   font-family: "Roboto Slab", serif;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .amenities-grid {
