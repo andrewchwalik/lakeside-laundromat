@@ -149,7 +149,7 @@ main {
 
 .hero-panel {
   position: relative;
-  background: linear-gradient(180deg, #d9f5ff 0%, #eefbff 64%, #ffffff 100%);
+  background: linear-gradient(180deg, #d9f5ff 0%, #eefbff 70%, #f8fdff 100%);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   padding: 1.9rem 1.9rem 0;
   overflow: visible;
@@ -161,9 +161,9 @@ main {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -2px;
-  height: 12rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.92) 72%, #ffffff 100%);
+  bottom: -4px;
+  height: 14rem;
+  background: linear-gradient(180deg, rgba(248, 253, 255, 0) 0%, rgba(248, 253, 255, 0.96) 78%, #ffffff 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -252,11 +252,20 @@ main {
 }
 
 .about-section {
-  margin-top: -4rem;
-  padding: 8rem 0 2.5rem;
+  margin-top: -5.5rem;
+  padding: 10rem 0 2.5rem;
   background: transparent;
   position: relative;
   z-index: 1;
+}
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 12rem;
+  background: linear-gradient(180deg, #f4fcff 0%, #ffffff 100%);
+  z-index: -1;
 }
 
 .about-panel {
@@ -302,7 +311,7 @@ main {
 .amenities-section {
   margin-top: -2px;
   padding: 8.6rem 0 5.5rem;
-  background: #ffffff;
+  background: #0bb5ef;
   position: relative;
   z-index: 1;
 }
@@ -312,17 +321,18 @@ main {
 }
 
 .amenities-heading {
-  max-width: 420px;
+  width: 100%;
+  max-width: none;
 }
 
 .amenities-shell h2 {
   max-width: none;
   margin: 0;
-  color: #146078;
-  font-size: clamp(2rem, 3.2vw, 3rem);
+  color: #ffffff;
+  font-size: clamp(1.9rem, 2.8vw, 3rem);
   line-height: 1.02;
   font-family: "Roboto Slab", serif;
-  white-space: normal;
+  white-space: nowrap;
 }
 
 .amenities-grid {
@@ -333,7 +343,7 @@ main {
 }
 
 .amenity-item {
-  color: #163843;
+  color: #ffffff;
 }
 
 .amenity-icon {
@@ -342,7 +352,7 @@ main {
   margin: 0 auto 1rem;
   display: grid;
   place-items: center;
-  color: #0bb5ef;
+  color: #eafaff;
 }
 
 .amenity-icon svg {
@@ -356,7 +366,7 @@ main {
 }
 
 .amenity-kicker {
-  color: #5d7b86;
+  color: rgba(255, 255, 255, 0.82);
   font-size: 0.88rem;
   margin-top: 0.45rem;
 }
@@ -548,8 +558,8 @@ main {
   }
 
   .about-section {
-    margin-top: -2.2rem;
-    padding: 5rem 0 2rem;
+    margin-top: -3rem;
+    padding: 6.5rem 0 2rem;
   }
 
   .about-panel {
