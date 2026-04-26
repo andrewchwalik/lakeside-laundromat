@@ -237,7 +237,7 @@ main {
   overflow: hidden;
   background: #cdeffc;
   box-shadow: var(--shadow);
-  border-radius: 0;
+  border-radius: 24px;
 }
 
 .photo-card img {
@@ -488,6 +488,7 @@ main {
   .photo-card {
     width: 230px;
     height: 230px;
+    border-radius: 18px;
   }
 
   .amenities-section {
