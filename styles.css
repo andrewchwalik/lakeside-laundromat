@@ -304,6 +304,10 @@ main {
   max-width: none;
 }
 
+.amenities-heading .about-label {
+  color: rgba(255, 255, 255, 0.92);
+}
+
 .amenities-shell h2 {
   max-width: none;
   margin: 0;
@@ -360,6 +364,33 @@ main {
   font-size: clamp(1rem, 1.05vw, 1.2rem);
   line-height: 1.16;
   font-weight: 600;
+}
+
+.amenities-gallery {
+  background: #ffffff;
+  padding: 0 0 2rem;
+}
+
+.gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: calc(100% - 1.9rem);
+  margin: 0 auto;
+}
+
+.gallery-card {
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .content-section-muted {
@@ -465,6 +496,10 @@ main {
   }
 
   .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-strip {
     grid-template-columns: 1fr;
   }
 }
