@@ -30,7 +30,7 @@ body {
   margin: 0;
   font-family: "Outfit", sans-serif;
   color: var(--text);
-  background: var(--bg);
+  background: #ffffff;
 }
 
 img {
@@ -54,6 +54,11 @@ h3 {
   margin: 0;
   line-height: 1.05;
   font-family: "Roboto Slab", serif;
+}
+
+main,
+.site-footer {
+  padding-inline: 0.95rem;
 }
 
 .container {
@@ -136,12 +141,7 @@ h3 {
 }
 
 .hero-shell {
-  padding: 0.95rem;
-}
-
-.hero-shell .container {
-  width: calc(100vw - 1.9rem);
-  max-width: none;
+  padding: 0;
 }
 
 .hero-panel {
@@ -200,7 +200,10 @@ h3 {
 .photo-marquee {
   overflow: hidden;
   margin: 0 -3.2rem;
-  padding-bottom: 1rem;
+  margin-bottom: -7.2rem;
+  padding-bottom: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .photo-track {
@@ -258,7 +261,7 @@ h3 {
 }
 
 .amenities-section {
-  padding: 5.5rem 0;
+  padding: 12rem 0 5.5rem;
   background: #146078;
 }
 
@@ -266,17 +269,14 @@ h3 {
   text-align: center;
 }
 
-.section-label-light {
-  color: rgba(255, 255, 255, 0.78);
-}
-
 .amenities-shell h2 {
-  max-width: 12ch;
+  max-width: none;
   margin: 0 auto;
   color: #f8fcfd;
-  font-size: clamp(2.5rem, 5vw, 4.4rem);
-  line-height: 0.98;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.02;
   font-family: "Roboto Slab", serif;
+  white-space: nowrap;
 }
 
 .amenities-grid {
@@ -311,16 +311,16 @@ h3 {
 
 .amenity-kicker {
   color: rgba(226, 248, 255, 0.76);
-  font-size: 0.95rem;
-  margin-bottom: 0.45rem;
+  font-size: 0.88rem;
+  margin-top: 0.45rem;
 }
 
 .amenity-item h3 {
   max-width: 12ch;
   margin: 0 auto;
-  font-size: clamp(1.5rem, 2vw, 2.15rem);
-  line-height: 1.08;
-  font-weight: 500;
+  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+  line-height: 1.16;
+  font-weight: 600;
 }
 
 .content-section-muted {
@@ -417,12 +417,13 @@ h3 {
 }
 
 @media (max-width: 760px) {
-  .hero-shell {
-    padding: 0.7rem;
+  main,
+  .site-footer {
+    padding-inline: 0.7rem;
   }
 
-  .hero-shell .container {
-    width: calc(100vw - 1.4rem);
+  .hero-shell {
+    padding: 0;
   }
 
   .hero-panel {
@@ -469,6 +470,7 @@ h3 {
 
   .photo-marquee {
     margin: 0 -1.8rem;
+    margin-bottom: -4.5rem;
   }
 
   .photo-track {
@@ -486,13 +488,18 @@ h3 {
   }
 
   .amenities-section {
-    padding: 4rem 0;
+    padding: 7rem 0 4rem;
   }
 
   .amenities-grid {
     grid-template-columns: 1fr;
     gap: 2.4rem;
     margin-top: 2.8rem;
+  }
+
+  .amenities-shell h2 {
+    font-size: 1.9rem;
+    white-space: normal;
   }
 
   .content-section {
