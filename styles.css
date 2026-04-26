@@ -148,11 +148,24 @@ main {
 }
 
 .hero-panel {
+  position: relative;
   background: linear-gradient(180deg, #d9f5ff 0%, #eefbff 64%, #ffffff 100%);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   padding: 1.9rem 1.9rem 0;
   overflow: visible;
   min-height: calc(100vh - 3rem);
+}
+
+.hero-panel::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 8.5rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 82%, #ffffff 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .site-header {
