@@ -169,7 +169,7 @@ main,
 
 .hero-copy h1 {
   font-family: "Outfit", sans-serif;
-  font-size: clamp(2.7rem, 4.75vw, 4.35rem);
+  font-size: clamp(2.2rem, 3.85vw, 3.55rem);
   line-height: 1.02;
   letter-spacing: -0.04em;
   font-weight: 700;
