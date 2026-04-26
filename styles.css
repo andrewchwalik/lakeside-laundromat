@@ -224,7 +224,7 @@ main {
 
 .photo-track {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 1.2rem;
   width: max-content;
   animation: scroll-photos 30s linear infinite;
@@ -232,6 +232,8 @@ main {
 
 .photo-card {
   flex: 0 0 auto;
+  width: 290px;
+  height: 290px;
   overflow: hidden;
   background: #cdeffc;
   box-shadow: var(--shadow);
@@ -243,33 +245,6 @@ main {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.photo-card-sm {
-  width: 250px;
-  height: 190px;
-  align-self: center;
-}
-
-.photo-card-lg {
-  width: 430px;
-  height: 290px;
-}
-
-.photo-card-md {
-  width: 360px;
-  height: 195px;
-}
-
-.photo-card-xl {
-  width: 390px;
-  height: 305px;
-}
-
-.photo-card-tall {
-  width: 265px;
-  height: 260px;
-  align-self: center;
 }
 
 .content-section {
@@ -509,14 +484,9 @@ main {
     gap: 0.9rem;
   }
 
-  .photo-card-sm,
-  .photo-card-lg,
-  .photo-card-md,
-  .photo-card-xl,
-  .photo-card-tall {
+  .photo-card {
     width: 230px;
-    height: 210px;
-    align-self: stretch;
+    height: 230px;
   }
 
   .amenities-section {
