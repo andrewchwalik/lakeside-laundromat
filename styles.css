@@ -242,7 +242,7 @@ main {
 
 .about-section {
   margin-top: 0;
-  padding: 6.5rem 0 4.5rem;
+  padding: 6.5rem 0 6.2rem;
   background: transparent;
   position: relative;
   z-index: 1;
@@ -290,7 +290,7 @@ main {
 
 .amenities-section {
   margin-top: -2px;
-  padding: 2.8rem 0 3.4rem;
+  padding: 1.9rem 0 3.4rem;
   background: #0bb5ef;
   position: relative;
   z-index: 1;
@@ -639,7 +639,7 @@ main {
 
   .about-section {
     margin-top: 0;
-    padding: 4.5rem 0 3rem;
+    padding: 4.5rem 0 4.2rem;
   }
 
   .about-panel {
@@ -651,7 +651,7 @@ main {
   }
 
   .amenities-section {
-    padding: 2.8rem 0 3rem;
+    padding: 2rem 0 3rem;
   }
 
   .amenities-section::before,
