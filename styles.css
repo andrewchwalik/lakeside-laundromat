@@ -290,7 +290,7 @@ main {
 
 .amenities-section {
   margin-top: -2px;
-  padding: 4.2rem 0 3.4rem;
+  padding: 2.8rem 0 3.4rem;
   background: #0bb5ef;
   position: relative;
   z-index: 1;
@@ -651,7 +651,7 @@ main {
   }
 
   .amenities-section {
-    padding: 3.8rem 0 3rem;
+    padding: 2.8rem 0 3rem;
   }
 
   .amenities-section::before,
