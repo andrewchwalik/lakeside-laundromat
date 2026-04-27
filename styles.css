@@ -240,9 +240,13 @@ main {
   padding: 4.5rem 0;
 }
 
+.pricing-section {
+  padding-top: 6.2rem;
+}
+
 .about-section {
   margin-top: 0;
-  padding: 6.5rem 0 6.2rem;
+  padding: 6.5rem 0 8rem;
   background: transparent;
   position: relative;
   z-index: 1;
@@ -639,7 +643,7 @@ main {
 
   .about-section {
     margin-top: 0;
-    padding: 4.5rem 0 4.2rem;
+    padding: 4.5rem 0 5.2rem;
   }
 
   .about-panel {
@@ -671,6 +675,10 @@ main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2.4rem;
     margin-top: 2.8rem;
+  }
+
+  .pricing-section {
+    padding-top: 5rem;
   }
 
   .footer-wave {
