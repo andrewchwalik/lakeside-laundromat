@@ -452,15 +452,76 @@ main {
 }
 
 .site-footer {
-  padding: 2rem 0 3.5rem;
+  margin-top: 5rem;
+  color: rgba(255, 255, 255, 0.86);
 }
 
-.footer-shell {
-  display: flex;
-  justify-content: space-between;
+.footer-wave {
+  height: 92px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,56 C170,6 332,92 542,52 C784,6 1020,10 1222,48 C1318,66 1388,74 1440,68 L1440,120 L0,120 Z'/%3E%3Cpath fill='%230f2f39' d='M0,74 C164,26 338,102 560,68 C806,30 1032,32 1246,62 C1332,74 1396,80 1440,74 L1440,120 L0,120 Z'/%3E%3C/svg%3E");
+}
+
+.footer-inner {
+  background: #0f2f39;
+  padding: 2.8rem 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.3fr) repeat(3, minmax(140px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.footer-brand {
+  display: grid;
   gap: 1rem;
-  color: var(--muted);
-  font-size: 0.95rem;
+}
+
+.footer-logo {
+  width: auto;
+  height: 3.6rem;
+  filter: brightness(0) saturate(100%) invert(74%) sepia(91%) saturate(1670%) hue-rotate(154deg) brightness(97%) contrast(95%);
+}
+
+.footer-brand p,
+.footer-column p,
+.footer-column a {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.footer-column {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.footer-column h3 {
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.footer-column a:hover,
+.footer-column a:focus-visible {
+  color: #86e7ff;
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  padding: 1rem 0 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
 }
 
 @media (max-width: 1100px) {
@@ -497,6 +558,10 @@ main {
 
   .about-grid {
     grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -606,6 +671,19 @@ main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2.4rem;
     margin-top: 2.8rem;
+  }
+
+  .footer-wave {
+    height: 68px;
+  }
+
+  .footer-inner {
+    padding-top: 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
   }
 
   .amenities-shell h2 {
