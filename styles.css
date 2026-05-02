@@ -430,30 +430,99 @@ main {
   margin-bottom: 2rem;
 }
 
-.pricing-grid {
+.pricing-stack {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
-.price-card {
-  padding: 1.5rem;
+.pricing-card-row {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+  gap: 2rem;
+  align-items: start;
+  padding: 1.8rem 2rem;
   border: 1px solid #dce6ea;
-  border-radius: var(--radius-md);
+  border-radius: 28px;
   background: white;
   box-shadow: 0 10px 30px rgba(78, 93, 162, 0.06);
 }
 
-.price-card h3 {
-  margin-bottom: 0.6rem;
-  font-family: "Outfit", sans-serif;
-  font-size: 1.15rem;
+.pricing-card-intro {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
 }
 
-.price-card p {
+.pricing-card-icon {
+  width: 4.1rem;
+  height: 4.1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #eaf8ff;
   color: var(--accent-dark);
-  font-size: 1.1rem;
+}
+
+.pricing-card-icon svg {
+  width: 2rem;
+  height: 2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pricing-card-intro h3 {
+  margin-bottom: 0.45rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.9rem;
+}
+
+.pricing-card-intro p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.pricing-card-label {
+  margin-bottom: 0.9rem;
+  color: #2d4752;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.pricing-list {
+  display: grid;
+  gap: 0.9rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.pricing-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid #e7eef2;
+}
+
+.pricing-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.pricing-list span {
+  color: #36515a;
+}
+
+.pricing-list strong {
+  color: var(--accent-dark);
+  font-size: 1rem;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .site-footer {
@@ -553,7 +622,7 @@ main {
     height: 2.5rem;
   }
 
-  .pricing-grid {
+  .pricing-card-row {
     grid-template-columns: 1fr;
   }
 
@@ -680,6 +749,18 @@ main {
 
   .pricing-section {
     padding-top: 5rem;
+  }
+
+  .pricing-card-row {
+    padding: 1.35rem;
+  }
+
+  .pricing-card-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card-intro h3 {
+    font-size: 1.5rem;
   }
 
   .footer-wave {
