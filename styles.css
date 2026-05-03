@@ -538,7 +538,7 @@ main {
 .reviews-section {
   position: relative;
   background: #0bb5ef;
-  overflow: hidden;
+  overflow: visible;
   padding: 7.5rem 0 7rem;
 }
 
