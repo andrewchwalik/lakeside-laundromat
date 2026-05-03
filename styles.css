@@ -266,6 +266,8 @@ main {
   padding: 2.5rem 0 0;
   transform: rotate(-2deg);
   transform-origin: center;
+  position: relative;
+  top: -60px;
 }
 
 .about-grid {
