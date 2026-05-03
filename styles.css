@@ -852,11 +852,17 @@ main {
     padding: 2.2rem 0 2.4rem;
   }
 
+  .hero-copy {
+    max-width: 21.5rem;
+    margin: 0 auto;
+  }
+
   .hero-copy h1 {
     font-size: 2.3rem;
   }
 
   .hero-text {
+    max-width: 30ch;
     font-size: 1rem;
   }
 
@@ -889,6 +895,11 @@ main {
     gap: 1.5rem;
   }
 
+  .amenities-heading {
+    max-width: 22rem;
+    margin: 0 auto;
+  }
+
   .amenities-section {
     padding: 2rem 0 3rem;
   }
@@ -908,12 +919,20 @@ main {
 
   .amenities-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2.4rem;
-    margin-top: 2.8rem;
+    gap: 1rem;
+    max-width: 22rem;
+    margin: 2.8rem auto 0;
   }
 
   .pricing-section {
     padding-top: 5rem;
+  }
+
+  .pricing-heading,
+  .pricing-stack {
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .pricing-card-row {
@@ -969,6 +988,7 @@ main {
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 1.6rem;
+    padding-inline: 0.75rem;
   }
 
   .amenities-shell h2 {
@@ -978,6 +998,14 @@ main {
 
   .content-section {
     padding: 3rem 0;
+  }
+
+  .contact-grid {
+    padding-inline: 0.75rem;
+  }
+
+  .footer-bottom {
+    padding-inline: 0.75rem;
   }
 
   .footer-shell {
