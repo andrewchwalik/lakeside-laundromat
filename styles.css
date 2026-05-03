@@ -336,6 +336,7 @@ main {
 .amenities-heading {
   width: 100%;
   max-width: none;
+  text-align: center;
 }
 
 .amenities-heading .about-label {
@@ -344,7 +345,7 @@ main {
 
 .amenities-shell h2 {
   max-width: none;
-  margin: 0;
+  margin: 0 auto;
   color: #ffffff;
   font-size: clamp(1.9rem, 2.8vw, 3rem);
   line-height: 1.02;
