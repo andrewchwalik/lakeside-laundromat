@@ -640,8 +640,11 @@ main {
 }
 
 .contact-section {
-  padding-top: 7rem;
-  padding-bottom: 5.25rem;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  min-height: 34rem;
+  display: flex;
+  align-items: center;
 }
 
 .contact-panel {
