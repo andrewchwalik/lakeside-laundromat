@@ -539,7 +539,7 @@ main {
   position: relative;
   background: #0bb5ef;
   overflow: visible;
-  padding: 4rem 0 5.15rem;
+  padding: calc(4rem - 40px) 0 5.15rem;
 }
 
 .reviews-wave-top,
@@ -976,7 +976,7 @@ main {
   }
 
   .reviews-section {
-    padding: 3.9rem 0 5rem;
+    padding: calc(3.9rem - 40px) 0 5rem;
   }
 
   .reviews-wave-top,
