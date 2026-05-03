@@ -360,6 +360,7 @@ main {
 }
 
 .amenity-item {
+  text-align: center;
   color: #ffffff;
   background: rgba(234, 250, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.22);
