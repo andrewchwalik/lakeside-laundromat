@@ -694,7 +694,7 @@ main {
 .footer-logo {
   width: auto;
   height: 3.6rem;
-  margin-left: -0.35rem;
+  margin-left: -12px;
   filter: brightness(0) saturate(100%) invert(74%) sepia(91%) saturate(1670%) hue-rotate(154deg) brightness(97%) contrast(95%);
 }
 
