@@ -814,11 +814,12 @@ main {
     padding: 0.9rem;
     flex-wrap: wrap;
     row-gap: 0;
-    transition: border-radius 180ms ease, padding-bottom 180ms ease;
+    border-radius: 32px;
+    overflow: hidden;
+    transition: padding-bottom 180ms ease;
   }
 
   .nav-shell.is-open {
-    border-radius: 28px;
     padding-bottom: 1rem;
   }
 
