@@ -586,9 +586,10 @@ main {
   color: #ffffff;
   font-size: clamp(2rem, 4vw, 3rem);
   text-transform: none;
-  font-family: "Outfit", sans-serif;
+  font-family: "Roboto Slab", serif;
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
+  line-height: 1.02;
 }
 
 .reviews-grid {
