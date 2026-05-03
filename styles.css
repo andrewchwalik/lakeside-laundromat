@@ -245,6 +245,7 @@ main {
 
 .pricing-section {
   padding-top: 6.2rem;
+  padding-bottom: 6.75rem;
 }
 
 .about-section {
@@ -403,7 +404,7 @@ main {
 }
 
 .content-section-muted {
-  background: #fbfbfd;
+  background: #ffffff;
 }
 
 .section-copy-block {
@@ -541,7 +542,7 @@ main {
   position: relative;
   background: #0bb5ef;
   overflow: visible;
-  padding: 7.5rem 0 7rem;
+  padding: 5.6rem 0 5.15rem;
 }
 
 .reviews-wave-top,
@@ -647,6 +648,11 @@ main {
   color: rgba(255, 255, 255, 0.86);
 }
 
+#contact {
+  padding-top: 7rem;
+  padding-bottom: 5.25rem;
+}
+
 .footer-wave {
   height: 92px;
   background-repeat: no-repeat;
@@ -706,7 +712,6 @@ main {
 .footer-bottom {
   margin-top: 2rem;
   padding: 1rem 0 1.2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
 }
 
