@@ -585,7 +585,7 @@ main {
 .reviews-heading h2 {
   color: #ffffff;
   font-size: clamp(2rem, 4vw, 3rem);
-  text-transform: uppercase;
+  text-transform: none;
   font-family: "Outfit", sans-serif;
   font-weight: 700;
   letter-spacing: 0.01em;
