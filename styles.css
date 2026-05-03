@@ -109,6 +109,10 @@ main {
   color: var(--accent);
 }
 
+.mobile-directions-link {
+  display: none;
+}
+
 .nav-toggle {
   display: none;
   border: 1px solid var(--line);
@@ -812,6 +816,18 @@ main {
     min-height: auto;
   }
 
+  .hero-panel::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2.5rem;
+    height: 5rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
   .nav-shell {
     align-items: center;
     justify-content: space-between;
@@ -853,6 +869,10 @@ main {
     display: flex;
   }
 
+  .mobile-directions-link {
+    display: inline-flex;
+  }
+
   .hero-content {
     padding: 2.2rem 0 2.4rem;
   }
@@ -873,7 +893,7 @@ main {
 
   .photo-marquee {
     margin: 0 -1.8rem;
-    margin-bottom: -2.8rem;
+    margin-bottom: -2rem;
     padding-bottom: 1.5rem;
   }
 
