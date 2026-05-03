@@ -645,7 +645,9 @@ main {
 }
 
 .contact-panel {
-  padding-top: 1.35rem;
+  padding-top: 0;
+  position: relative;
+  top: 1.35rem;
 }
 
 .contact-copy {
