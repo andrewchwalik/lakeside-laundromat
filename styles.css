@@ -651,6 +651,26 @@ main {
 #contact {
   padding-top: 7rem;
   padding-bottom: 5.25rem;
+  min-height: 28rem;
+  display: flex;
+  align-items: center;
+}
+
+#contact .section-copy-block {
+  text-align: center;
+}
+
+#contact .section-copy-block p + p {
+  margin-top: 0.65rem;
+}
+
+#contact a {
+  color: var(--muted);
+}
+
+#contact a:hover,
+#contact a:focus-visible {
+  color: var(--accent-dark);
 }
 
 .footer-wave {
@@ -707,6 +727,15 @@ main {
 .footer-column a:hover,
 .footer-column a:focus-visible {
   color: #86e7ff;
+}
+
+.footer-bottom a {
+  color: #86e7ff;
+}
+
+.footer-bottom a:hover,
+.footer-bottom a:focus-visible {
+  color: #ffffff;
 }
 
 .footer-bottom {
