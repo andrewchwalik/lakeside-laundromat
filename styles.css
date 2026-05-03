@@ -645,28 +645,29 @@ main {
   color: rgba(255, 255, 255, 0.86);
 }
 
-#contact {
+.contact-section {
   padding-top: 7rem;
   padding-bottom: 5.25rem;
-  min-height: 28rem;
-  display: flex;
-  align-items: center;
 }
 
-#contact .section-copy-block {
-  text-align: center;
+.contact-panel {
+  padding-top: 0;
 }
 
-#contact .section-copy-block p + p {
-  margin-top: 0.65rem;
+.contact-copy {
+  gap: 0.7rem;
 }
 
-#contact a {
-  color: var(--muted);
+.contact-copy p {
+  color: #40523d;
 }
 
-#contact a:hover,
-#contact a:focus-visible {
+.contact-copy a {
+  color: #40523d;
+}
+
+.contact-copy a:hover,
+.contact-copy a:focus-visible {
   color: var(--accent-dark);
 }
 
