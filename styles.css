@@ -442,6 +442,7 @@ main {
   margin-bottom: 0.65rem;
   color: #6a7968;
   font-size: 1rem;
+  font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
 }
@@ -577,7 +578,7 @@ main {
   margin-bottom: 0.8rem;
   color: rgba(255, 255, 255, 0.94);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .reviews-heading h2 {
