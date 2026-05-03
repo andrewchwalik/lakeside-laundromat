@@ -651,6 +651,68 @@ main {
   padding-bottom: 6.5rem;
 }
 
+.jobs-section {
+  padding-top: 5.8rem;
+  padding-bottom: 5.4rem;
+}
+
+.jobs-panel {
+  padding-top: 0;
+}
+
+.jobs-intro h2 {
+  max-width: 11ch;
+}
+
+.jobs-form-card {
+  padding: 1.7rem;
+  border: 1px solid #dce6ea;
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(78, 93, 162, 0.06);
+}
+
+.jobs-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.jobs-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.jobs-field span {
+  color: #40523d;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.jobs-field input,
+.jobs-field textarea {
+  width: 100%;
+  border: 1px solid #dce6ea;
+  border-radius: 16px;
+  background: #fbfdff;
+  color: #243222;
+  font: inherit;
+  padding: 0.9rem 1rem;
+  resize: vertical;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.jobs-field input:focus,
+.jobs-field textarea:focus {
+  border-color: rgba(11, 181, 239, 0.6);
+  box-shadow: 0 0 0 4px rgba(11, 181, 239, 0.12);
+}
+
+.jobs-field-full {
+  grid-column: 1 / -1;
+}
+
 .contact-panel {
   padding-top: 0;
   position: relative;
@@ -921,6 +983,10 @@ main {
 
   .about-grid {
     gap: 1.5rem;
+  }
+
+  .jobs-form {
+    grid-template-columns: 1fr;
   }
 
   .amenities-heading {
