@@ -678,6 +678,10 @@ main {
   max-width: 11ch;
 }
 
+.jobs-intro {
+  padding-left: 1rem;
+}
+
 .jobs-form-card {
   padding: 1.7rem;
   border: 1px solid #dce6ea;
