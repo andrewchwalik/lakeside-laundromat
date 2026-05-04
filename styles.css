@@ -343,12 +343,12 @@ main {
 
 .amenities-section::before {
   top: -70px;
-  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,84 C120,60 240,50 360,58 S600,104 720,104 S960,58 1080,58 S1320,84 1440,84 L1440,140 L0,140 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,98 C132,74 248,66 360,74 S604,118 720,118 S964,74 1080,74 S1320,98 1440,98 L1440,140 L0,140 Z'/%3E%3C/svg%3E\");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,84 C120,60 240,50 360,58 S600,104 720,104 S960,58 1080,58 S1320,84 1440,84 L1440,140 L0,140 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,98 C132,74 248,66 360,74 S604,118 720,118 S964,74 1080,74 S1320,98 1440,98 L1440,140 L0,140 Z'/%3E%3C/svg%3E");
 }
 
 .amenities-section::after {
   bottom: -70px;
-  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,44 C120,62 242,94 360,88 S604,26 720,26 S964,88 1080,88 S1320,44 1440,44 L1440,0 L0,0 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,30 C126,50 246,82 360,78 S606,18 720,18 S966,78 1080,78 S1320,30 1440,30 L1440,0 L0,0 Z'/%3E%3C/svg%3E\");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,44 C120,62 242,94 360,88 S604,26 720,26 S964,88 1080,88 S1320,44 1440,44 L1440,0 L0,0 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,30 C126,50 246,82 360,78 S606,18 720,18 S966,78 1080,78 S1320,30 1440,30 L1440,0 L0,0 Z'/%3E%3C/svg%3E");
   animation-name: wave-loop-right;
   animation-duration: 11s;
   animation-delay: -3s;
@@ -585,12 +585,12 @@ main {
 
 .reviews-wave-top {
   top: -70px;
-  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,76 C138,54 278,72 396,94 S636,112 756,92 S998,50 1116,48 S1326,72 1440,76 L1440,140 L0,140 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,90 C150,68 286,84 406,106 S646,124 766,104 S1008,62 1124,60 S1332,84 1440,90 L1440,140 L0,140 Z'/%3E%3C/svg%3E\");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,76 C138,54 278,72 396,94 S636,112 756,92 S998,50 1116,48 S1326,72 1440,76 L1440,140 L0,140 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,90 C150,68 286,84 406,106 S646,124 766,104 S1008,62 1124,60 S1332,84 1440,90 L1440,140 L0,140 Z'/%3E%3C/svg%3E");
 }
 
 .reviews-wave-bottom {
   bottom: -70px;
-  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,52 C142,86 280,98 400,82 S640,22 760,30 S1000,92 1120,92 S1336,58 1440,52 L1440,0 L0,0 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,38 C150,72 286,84 408,70 S648,12 770,20 S1010,80 1128,80 S1342,46 1440,38 L1440,0 L0,0 Z'/%3E%3C/svg%3E\");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,52 C142,86 280,98 400,82 S640,22 760,30 S1000,92 1120,92 S1336,58 1440,52 L1440,0 L0,0 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,38 C150,72 286,84 408,70 S648,12 770,20 S1010,80 1128,80 S1342,46 1440,38 L1440,0 L0,0 Z'/%3E%3C/svg%3E");
   animation-name: wave-loop-left;
   animation-duration: 12s;
   animation-delay: -4s;
@@ -964,7 +964,7 @@ main {
   width: 200%;
   background-repeat: repeat-x;
   background-size: 50% 100%;
-  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,54 C126,32 252,50 378,66 S630,80 756,60 S1008,24 1134,30 S1332,54 1440,54 L1440,120 L0,120 Z'/%3E%3Cpath fill='%230f2f39' d='M0,72 C136,48 264,64 392,80 S648,94 776,74 S1032,38 1160,44 S1344,70 1440,72 L1440,120 L0,120 Z'/%3E%3C/svg%3E\");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,54 C126,32 252,50 378,66 S630,80 756,60 S1008,24 1134,30 S1332,54 1440,54 L1440,120 L0,120 Z'/%3E%3Cpath fill='%230f2f39' d='M0,72 C136,48 264,64 392,80 S648,94 776,74 S1032,38 1160,44 S1344,70 1440,72 L1440,120 L0,120 Z'/%3E%3C/svg%3E");
   animation: wave-loop-left 10s linear infinite;
   margin-bottom: -1px;
   will-change: transform;
