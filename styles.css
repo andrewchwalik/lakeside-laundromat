@@ -301,7 +301,9 @@ main {
   color: #146078;
   font-size: clamp(2rem, 4vw, 3.35rem);
   line-height: 1.02;
-  font-family: "Roboto Slab", serif;
+  font-family: "Outfit", sans-serif;
+  letter-spacing: -0.04em;
+  font-weight: 700;
 }
 
 .about-copy {
@@ -372,7 +374,9 @@ main {
   color: #ffffff;
   font-size: clamp(1.9rem, 2.8vw, 3rem);
   line-height: 1.02;
-  font-family: "Roboto Slab", serif;
+  font-family: "Outfit", sans-serif;
+  letter-spacing: -0.04em;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -445,6 +449,9 @@ main {
   margin-bottom: 1rem;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.05;
+  font-family: "Outfit", sans-serif;
+  letter-spacing: -0.04em;
+  font-weight: 700;
 }
 
 .section-copy-block p {
@@ -606,9 +613,9 @@ main {
   color: #ffffff;
   font-size: clamp(2rem, 4vw, 3rem);
   text-transform: none;
-  font-family: "Roboto Slab", serif;
+  font-family: "Outfit", sans-serif;
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: -0.04em;
   line-height: 1.02;
 }
 
