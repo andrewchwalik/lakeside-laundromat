@@ -631,6 +631,21 @@ main {
   margin: 0 auto;
 }
 
+.reviews-cta-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.reviews-cta {
+  margin-top: 0;
+  background: #146078;
+}
+
+.reviews-cta .hero-button-icon {
+  color: #146078;
+}
+
 .review-card {
   padding: 2rem 1.8rem;
   background: #ffffff;
