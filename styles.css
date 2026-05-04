@@ -178,6 +178,7 @@ main {
 }
 
 .hero-copy h1 {
+  color: #146078;
   font-family: "Outfit", sans-serif;
   font-size: clamp(2.2rem, 3.85vw, 3.55rem);
   line-height: 1.02;
@@ -814,7 +815,7 @@ main {
 }
 
 .pinball-heading h2 {
-  color: #fff7c2;
+  color: #146078;
   font-family: "Press Start 2P", monospace;
   font-size: clamp(1.25rem, 2vw, 1.75rem);
   line-height: 1.7;
