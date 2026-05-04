@@ -194,6 +194,18 @@ main {
   line-height: 1.5;
 }
 
+.hero-hours {
+  display: inline-flex;
+  margin-top: 1.05rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(11, 181, 239, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #2b5563;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
 .hero-button {
   display: inline-flex;
   align-items: center;
@@ -759,6 +771,126 @@ main {
   color: #1d6b58;
 }
 
+.pinball-section {
+  position: relative;
+  padding: 3.8rem 0 4.6rem;
+  background:
+    radial-gradient(circle at top left, rgba(255, 225, 120, 0.2), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(255, 84, 168, 0.18), transparent 28%),
+    linear-gradient(180deg, #09141d 0%, #102536 100%);
+  overflow: hidden;
+}
+
+.pinball-section::before {
+  content: "";
+  position: absolute;
+  inset: 1.1rem;
+  border: 3px solid rgba(133, 240, 255, 0.22);
+  pointer-events: none;
+}
+
+.pinball-shell {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1.15fr);
+  gap: 2.4rem;
+  align-items: start;
+}
+
+.pinball-heading {
+  color: #effbff;
+}
+
+.pinball-kicker {
+  margin-bottom: 1rem;
+  color: #86e7ff;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.7rem;
+  line-height: 1.8;
+}
+
+.pinball-heading h2 {
+  color: #fff7c2;
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.7;
+  text-transform: uppercase;
+  text-shadow: 0 3px 0 rgba(11, 181, 239, 0.22);
+}
+
+.pinball-copy {
+  max-width: 28ch;
+  margin-top: 1.35rem;
+  color: rgba(236, 246, 255, 0.82);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.pinball-board {
+  padding: 1.1rem;
+  border: 4px solid #7ee7ff;
+  background: linear-gradient(180deg, #14293b 0%, #0f1f2d 100%);
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.06),
+    0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.pinball-board-top,
+.pinball-row {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr) minmax(120px, auto);
+  gap: 1rem;
+  align-items: center;
+}
+
+.pinball-board-top {
+  padding: 0.95rem 1rem;
+  margin-bottom: 0.8rem;
+  background: rgba(126, 231, 255, 0.15);
+  color: #9cf4ff;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.62rem;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.pinball-list {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.pinball-row {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f4fbff;
+  box-shadow: inset 0 0 0 2px rgba(134, 231, 255, 0.14);
+}
+
+.pinball-rank,
+.pinball-score {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.pinball-rank {
+  color: #fff7c2;
+}
+
+.pinball-name {
+  color: #ffffff;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.pinball-score {
+  color: #86e7ff;
+  text-align: right;
+}
+
 .contact-panel {
   padding-top: 0;
   position: relative;
@@ -1002,6 +1134,10 @@ main {
     font-size: 1rem;
   }
 
+  .hero-hours {
+    font-size: 0.9rem;
+  }
+
   .photo-marquee {
     margin: 0 -1.8rem;
     margin-bottom: -2rem;
@@ -1033,6 +1169,40 @@ main {
 
   .jobs-form {
     grid-template-columns: 1fr;
+  }
+
+  .pinball-shell {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .pinball-section {
+    padding: 3rem 0 3.4rem;
+  }
+
+  .pinball-section::before {
+    inset: 0.75rem;
+  }
+
+  .pinball-copy {
+    max-width: none;
+  }
+
+  .pinball-board-top,
+  .pinball-row {
+    grid-template-columns: 52px minmax(0, 1fr) minmax(96px, auto);
+    gap: 0.65rem;
+  }
+
+  .pinball-board-top {
+    padding: 0.8rem;
+    font-size: 0.5rem;
+  }
+
+  .pinball-name,
+  .pinball-rank,
+  .pinball-score {
+    font-size: 0.66rem;
   }
 
   .amenities-heading {
