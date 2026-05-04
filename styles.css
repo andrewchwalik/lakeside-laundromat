@@ -334,15 +334,24 @@ main {
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
-  background: var(--wave-fill, transparent);
 }
 
 .wave-band-top {
   top: -82px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0 34%,
+    var(--wave-fill, transparent) 34% 100%
+  );
 }
 
 .wave-band-bottom {
   bottom: -82px;
+  background: linear-gradient(
+    to top,
+    transparent 0 34%,
+    var(--wave-fill, transparent) 34% 100%
+  );
 }
 
 .wave-band-bob {
