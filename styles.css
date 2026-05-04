@@ -985,6 +985,10 @@ main {
   line-height: 1.7;
 }
 
+.footer-brand p {
+  line-height: 1.45;
+}
+
 .footer-column {
   display: grid;
   gap: 0.4rem;
