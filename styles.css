@@ -925,6 +925,10 @@ main {
   gap: 0.7rem;
 }
 
+.contact-grid .about-intro h2 {
+  max-width: 7ch;
+}
+
 .contact-copy p {
   color: #40523d;
 }
