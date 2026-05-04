@@ -337,20 +337,20 @@ main {
 }
 
 .wave-band-top {
-  top: -82px;
+  top: -50px;
   background: linear-gradient(
     to bottom,
-    transparent 0 34%,
-    var(--wave-fill, transparent) 34% 100%
+    transparent 0 58%,
+    var(--wave-fill, transparent) 58% 100%
   );
 }
 
 .wave-band-bottom {
-  bottom: -82px;
+  bottom: -66px;
   background: linear-gradient(
     to top,
-    transparent 0 34%,
-    var(--wave-fill, transparent) 34% 100%
+    transparent 0 78%,
+    var(--wave-fill, transparent) 78% 100%
   );
 }
 
@@ -1313,11 +1313,11 @@ main {
   }
 
   .wave-band-top {
-    top: -62px;
+    top: -38px;
   }
 
   .wave-band-bottom {
-    bottom: -62px;
+    bottom: -50px;
   }
 
   .amenities-grid {
