@@ -402,6 +402,7 @@ main {
   height: 100%;
   object-fit: contain;
   display: block;
+  filter: brightness(0) saturate(100%) invert(29%) sepia(36%) saturate(1122%) hue-rotate(149deg) brightness(92%) contrast(93%);
 }
 
 .amenity-kicker {
