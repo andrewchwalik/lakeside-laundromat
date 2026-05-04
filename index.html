@@ -354,31 +354,47 @@
               </div>
 
               <div class="jobs-form-card">
-                <form class="jobs-form" action="#" method="post">
+                <form
+                  class="jobs-form"
+                  id="jobs-form"
+                  action="#"
+                  method="post"
+                  data-endpoint="https://lakeside-laundromat-jobs.chwalik.workers.dev/api/jobs"
+                >
                   <label class="jobs-field">
                     <span>Name</span>
-                    <input type="text" name="name" autocomplete="name" />
+                    <input type="text" name="name" autocomplete="name" required />
                   </label>
 
                   <label class="jobs-field">
                     <span>Email</span>
-                    <input type="email" name="email" autocomplete="email" />
+                    <input type="email" name="email" autocomplete="email" required />
                   </label>
 
                   <label class="jobs-field">
                     <span>Phone Number</span>
-                    <input type="tel" name="phone" autocomplete="tel" />
+                    <input type="tel" name="phone" autocomplete="tel" required />
                   </label>
 
                   <label class="jobs-field">
                     <span>Address</span>
-                    <input type="text" name="address" autocomplete="street-address" />
+                    <input
+                      type="text"
+                      name="address"
+                      autocomplete="street-address"
+                      required
+                    />
                   </label>
 
                   <label class="jobs-field jobs-field-full">
                     <span>Relevant Experience</span>
-                    <textarea name="experience" rows="5"></textarea>
+                    <textarea name="experience" rows="5" required></textarea>
                   </label>
+
+                  <div class="jobs-form-actions jobs-field-full">
+                    <button class="jobs-submit" type="submit">Send Application</button>
+                    <p class="jobs-form-status" id="jobs-form-status" aria-live="polite"></p>
+                  </div>
                 </form>
               </div>
             </div>

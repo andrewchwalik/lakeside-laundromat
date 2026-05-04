@@ -715,6 +715,50 @@ main {
   grid-column: 1 / -1;
 }
 
+.jobs-form-actions {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.jobs-submit {
+  justify-self: start;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.9rem 1.4rem;
+  cursor: pointer;
+  transition: transform 160ms ease, opacity 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 12px 28px rgba(11, 181, 239, 0.2);
+}
+
+.jobs-submit:hover,
+.jobs-submit:focus-visible {
+  transform: translateY(-1px);
+}
+
+.jobs-submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+.jobs-form-status {
+  min-height: 1.4rem;
+  color: #4f666f;
+  font-size: 0.94rem;
+}
+
+.jobs-form-status.is-error {
+  color: #b44343;
+}
+
+.jobs-form-status.is-success {
+  color: #1d6b58;
+}
+
 .contact-panel {
   padding-top: 0;
   position: relative;

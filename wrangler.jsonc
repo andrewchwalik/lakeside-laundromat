@@ -1,0 +1,7 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lakeside-laundromat-jobs",
+  "main": "workers/jobs-discord.js",
+  "compatibility_date": "2026-05-03",
+  "workers_dev": true
+}
