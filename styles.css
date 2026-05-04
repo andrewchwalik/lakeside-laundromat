@@ -1174,6 +1174,8 @@ main {
   .pinball-shell {
     grid-template-columns: 1fr;
     gap: 1.8rem;
+    max-width: 20.75rem;
+    margin: 0 auto;
   }
 
   .pinball-section {
@@ -1186,6 +1188,15 @@ main {
 
   .pinball-copy {
     max-width: none;
+  }
+
+  .pinball-heading h2 {
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  .pinball-board {
+    padding: 0.85rem;
   }
 
   .pinball-board-top,
