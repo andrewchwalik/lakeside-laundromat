@@ -658,6 +658,8 @@ main {
 
 .jobs-panel {
   padding-top: 0;
+  position: relative;
+  top: 100px;
 }
 
 .jobs-intro h2 {
