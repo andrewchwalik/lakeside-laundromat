@@ -298,7 +298,7 @@ main {
 }
 
 .about-intro h2 {
-  color: #243222;
+  color: #146078;
   font-size: clamp(2rem, 4vw, 3.35rem);
   line-height: 1.02;
   font-family: "Roboto Slab", serif;
@@ -438,6 +438,7 @@ main {
 }
 
 .section-copy-block h2 {
+  color: #146078;
   margin-bottom: 1rem;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.05;
@@ -815,7 +816,7 @@ main {
 }
 
 .pinball-heading h2 {
-  color: #146078;
+  color: #fff7c2;
   font-family: "Press Start 2P", monospace;
   font-size: clamp(1.25rem, 2vw, 1.75rem);
   line-height: 1.7;
