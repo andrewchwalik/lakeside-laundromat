@@ -330,16 +330,15 @@ main {
 .amenities-section::after {
   content: "";
   position: absolute;
-  left: 0;
-  width: 100%;
+  left: -50%;
+  width: 200%;
   height: 72px;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
   pointer-events: none;
   z-index: 0;
-  animation: wave-drift-a 16s linear infinite;
+  animation: wave-flow-a 12s linear infinite;
   will-change: transform;
-  transform-origin: center;
 }
 
 .amenities-section::before {
@@ -350,8 +349,8 @@ main {
 .amenities-section::after {
   bottom: -70px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,60 C170,110 315,8 510,48 C760,96 980,120 1190,70 C1290,46 1370,34 1440,46 L1440,0 L0,0 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,48 C180,92 340,0 540,34 C790,82 1000,102 1208,58 C1300,38 1378,24 1440,34 L1440,0 L0,0 Z'/%3E%3C/svg%3E");
-  animation-name: wave-drift-b;
-  animation-duration: 18s;
+  animation-name: wave-flow-b;
+  animation-duration: 14s;
 }
 
 .amenities-shell {
@@ -573,15 +572,14 @@ main {
 .reviews-wave-top,
 .reviews-wave-bottom {
   position: absolute;
-  left: 0;
-  width: 100%;
+  left: -50%;
+  width: 200%;
   height: 72px;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
   pointer-events: none;
-  animation: wave-drift-b 17s linear infinite;
+  animation: wave-flow-b 13s linear infinite;
   will-change: transform;
-  transform-origin: center;
 }
 
 .reviews-wave-top {
@@ -592,8 +590,8 @@ main {
 .reviews-wave-bottom {
   bottom: -70px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,38 C166,68 314,106 474,92 C652,78 796,18 962,26 C1134,34 1298,96 1440,84 L1440,0 L0,0 Z'/%3E%3Cpath fill='%230bb5ef' d='M0,24 C174,52 326,92 498,80 C680,66 828,10 996,18 C1164,26 1316,80 1440,70 L1440,0 L0,0 Z'/%3E%3C/svg%3E");
-  animation-name: wave-drift-c;
-  animation-duration: 19s;
+  animation-name: wave-flow-c;
+  animation-duration: 15s;
 }
 
 .reviews-shell {
@@ -944,12 +942,15 @@ main {
 
 .footer-wave {
   height: 92px;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  position: relative;
+  top: 1px;
+  left: -50%;
+  width: 200%;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='%2386e7ff' d='M0,56 C170,6 332,92 542,52 C784,6 1020,10 1222,48 C1318,66 1388,74 1440,68 L1440,120 L0,120 Z'/%3E%3Cpath fill='%230f2f39' d='M0,74 C164,26 338,102 560,68 C806,30 1032,32 1246,62 C1332,74 1396,80 1440,74 L1440,120 L0,120 Z'/%3E%3C/svg%3E");
-  animation: wave-drift-c 21s linear infinite;
+  animation: wave-flow-c 16s linear infinite;
   will-change: transform;
-  transform-origin: center;
 }
 
 .footer-inner {
@@ -1380,65 +1381,33 @@ main {
   }
 }
 
-@keyframes wave-drift-a {
+@keyframes wave-flow-a {
   0% {
-    transform: translate3d(0, 0, 0) scaleX(1.045);
-  }
-
-  25% {
-    transform: translate3d(-1.1%, 1px, 0) scaleX(1.055);
-  }
-
-  50% {
-    transform: translate3d(0.9%, 0, 0) scaleX(1.045);
-  }
-
-  75% {
-    transform: translate3d(-0.7%, -1px, 0) scaleX(1.05);
+    transform: translate3d(0, 0, 0);
   }
 
   100% {
-    transform: translate3d(0, 0, 0) scaleX(1.045);
+    transform: translate3d(-12%, 0, 0);
   }
 }
 
-@keyframes wave-drift-b {
+@keyframes wave-flow-b {
   0% {
-    transform: translate3d(0, 0, 0) scaleX(1.05);
-  }
-
-  30% {
-    transform: translate3d(1%, 1px, 0) scaleX(1.058);
-  }
-
-  60% {
-    transform: translate3d(-0.85%, 0, 0) scaleX(1.048);
+    transform: translate3d(-6%, 0, 0);
   }
 
   100% {
-    transform: translate3d(0, 0, 0) scaleX(1.05);
+    transform: translate3d(6%, 0, 0);
   }
 }
 
-@keyframes wave-drift-c {
+@keyframes wave-flow-c {
   0% {
-    transform: translate3d(0, 0, 0) scaleX(1.04);
-  }
-
-  20% {
-    transform: translate3d(-0.8%, 1px, 0) scaleX(1.05);
-  }
-
-  55% {
-    transform: translate3d(0.95%, 0, 0) scaleX(1.045);
-  }
-
-  80% {
-    transform: translate3d(-0.5%, -1px, 0) scaleX(1.05);
+    transform: translate3d(0, 0, 0);
   }
 
   100% {
-    transform: translate3d(0, 0, 0) scaleX(1.04);
+    transform: translate3d(-8%, 0, 0);
   }
 }
 
