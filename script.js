@@ -5,6 +5,7 @@ const yearTarget = document.querySelector("#year");
 const jobsForm = document.querySelector("#jobs-form");
 const jobsFormStatus = document.querySelector("#jobs-form-status");
 const waterWaveSvgs = document.querySelectorAll(".wave-water .wave-svg, .footer-wave .wave-svg");
+const photoMarquee = document.querySelector(".photo-marquee");
 const internalAnchorLinks = document.querySelectorAll('a[href^="#"]');
 
 const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -145,6 +146,63 @@ if (jobsForm && jobsFormStatus) {
       submitButton?.removeAttribute("disabled");
     }
   });
+}
+
+if (photoMarquee) {
+  const feedUrl = photoMarquee.dataset.feedUrl;
+  const photoCards = Array.from(photoMarquee.querySelectorAll(".photo-card"));
+
+  const updatePhotoMarquee = async () => {
+    if (!feedUrl || !photoCards.length) {
+      return;
+    }
+
+    try {
+      const response = await fetch(feedUrl, { method: "GET" });
+
+      if (!response.ok) {
+        throw new Error("Feed request failed.");
+      }
+
+      const xmlText = await response.text();
+      const xml = new DOMParser().parseFromString(xmlText, "text/xml");
+      const items = Array.from(xml.querySelectorAll("item"))
+        .map((item) => {
+          const mediaContent = item.querySelector("media\\:content, content");
+          const title = item.querySelector("title")?.textContent?.trim() || "";
+          const imageUrl = mediaContent?.getAttribute("url")?.trim();
+
+          if (!imageUrl) {
+            return null;
+          }
+
+          return { imageUrl, title };
+        })
+        .filter(Boolean);
+
+      if (!items.length) {
+        return;
+      }
+
+      photoCards.forEach((card, index) => {
+        const image = card.querySelector("img");
+
+        if (!image) {
+          return;
+        }
+
+        const item = items[index % items.length];
+        const isDuplicate = card.hasAttribute("aria-hidden");
+
+        image.src = item.imageUrl;
+        image.alt = isDuplicate ? "" : item.title || "Recent Instagram post from The Wash Company";
+      });
+    } catch (error) {
+      console.error("Unable to load Instagram feed for marquee.", error);
+    }
+  };
+
+  updatePhotoMarquee();
 }
 
 if (waterWaveSvgs.length) {
