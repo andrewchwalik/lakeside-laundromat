@@ -139,9 +139,9 @@ if (waterWaveSvgs.length) {
       backFrequencyB: 2.1,
       frontFrequencyA: 1.55,
       frontFrequencyB: 2.5,
-      backSpeed: 0.00125 + index * 0.00004,
-      frontSpeed: 0.0019 + index * 0.00005,
-      bobSpeed: 0.0011 + index * 0.00002,
+      backSpeed: 0.00092 + index * 0.00003,
+      frontSpeed: 0.00135 + index * 0.00004,
+      bobSpeed: 0.00082 + index * 0.000015,
       bobAmount: isFooter ? 2.4 : 3.2,
       basePhase: index * 0.9,
     };
