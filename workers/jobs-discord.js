@@ -71,6 +71,10 @@ async function handleInstagramFeed(request, origin) {
               (typeof item.content_text === "string" && item.content_text.trim()) ||
               "",
             image: proxiedImageUrl.toString(),
+            url:
+              (typeof item.url === "string" && item.url.trim()) ||
+              (typeof item.external_url === "string" && item.external_url.trim()) ||
+              "",
           };
         })
         .filter(Boolean)

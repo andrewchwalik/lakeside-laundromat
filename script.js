@@ -172,7 +172,7 @@ if (photoMarquee) {
                 item.image?.trim() ||
                 item.attachments?.[0]?.url?.trim() ||
                 "";
-              const postUrl = item.url?.trim() || "";
+              const postUrl = item.url?.trim() || item.postUrl?.trim() || "";
               const title = item.title?.trim() || item.content_text?.trim() || "";
 
               if (!imageUrl || !postUrl) {
