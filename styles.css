@@ -1330,6 +1330,10 @@ main {
     padding: 3rem 0;
   }
 
+  .contact-section {
+    padding-top: calc(5.75rem - 25px);
+  }
+
   .contact-grid {
     padding-inline: 0.75rem;
   }
