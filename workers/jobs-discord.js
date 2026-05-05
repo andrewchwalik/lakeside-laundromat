@@ -6,7 +6,7 @@ const ALLOWED_ORIGINS = new Set([
   "http://localhost:5500",
 ]);
 const INSTAGRAM_FEED_URL = "https://rss.app/feeds/v1.1/MgEgN3USbt9ulJBb.json";
-const INSTAGRAM_IMAGE_HOST_PATTERN = /(^|\.)cdninstagram\.com$/i;
+const INSTAGRAM_IMAGE_HOST_PATTERN = /(^|\.)(cdninstagram\.com|fbcdn\.net)$/i;
 
 function buildCorsHeaders(origin) {
   const headers = {
