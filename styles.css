@@ -656,7 +656,7 @@ main {
 
 .reviews-decor-right {
   right: 6%;
-  bottom: 18%;
+  bottom: calc(18% - 380px);
 }
 
 .site-footer {
