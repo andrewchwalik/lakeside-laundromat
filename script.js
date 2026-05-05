@@ -330,7 +330,7 @@ if (waterWaveSvgs.length) {
       wave.frontPath.setAttribute("d", frontPathData);
     });
 
-    if (!reducedMotionQuery.matches) {
+    if (!reduceMotionQuery.matches) {
       waveAnimationFrame = window.requestAnimationFrame(renderWaves);
     }
   };
@@ -339,12 +339,12 @@ if (waterWaveSvgs.length) {
 
   renderStaticWaves();
 
-  if (!reducedMotionQuery.matches) {
+  if (!reduceMotionQuery.matches) {
     waveAnimationFrame = window.requestAnimationFrame(renderWaves);
   }
 
-  if (typeof reducedMotionQuery.addEventListener === "function") {
-    reducedMotionQuery.addEventListener("change", () => {
+  if (typeof reduceMotionQuery.addEventListener === "function") {
+    reduceMotionQuery.addEventListener("change", () => {
       if (waveAnimationFrame) {
         window.cancelAnimationFrame(waveAnimationFrame);
         waveAnimationFrame = null;
@@ -352,7 +352,7 @@ if (waterWaveSvgs.length) {
 
       renderStaticWaves();
 
-      if (!reducedMotionQuery.matches) {
+      if (!reduceMotionQuery.matches) {
         waveAnimationFrame = window.requestAnimationFrame(renderWaves);
       }
     });
