@@ -670,7 +670,7 @@ main {
 }
 
 .jobs-section {
-  padding-top: 6.8rem;
+  padding-top: calc(6.8rem - 55px);
   padding-bottom: calc(3.4rem + 50px);
 }
 
