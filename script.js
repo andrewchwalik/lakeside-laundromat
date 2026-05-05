@@ -172,13 +172,14 @@ if (photoMarquee) {
                 item.image?.trim() ||
                 item.attachments?.[0]?.url?.trim() ||
                 "";
+              const postUrl = item.url?.trim() || "";
               const title = item.title?.trim() || item.content_text?.trim() || "";
 
-              if (!imageUrl) {
+              if (!imageUrl || !postUrl) {
                 return null;
               }
 
-              return { imageUrl, title };
+              return { imageUrl, postUrl, title };
             })
             .filter(Boolean)
         : [];
@@ -189,8 +190,9 @@ if (photoMarquee) {
 
       photoCards.forEach((card, index) => {
         const image = card.querySelector("img");
+        const link = card.querySelector(".photo-card-link");
 
-        if (!image) {
+        if (!image || !link) {
           return;
         }
 
@@ -200,6 +202,13 @@ if (photoMarquee) {
         image.src = item.imageUrl;
         image.referrerPolicy = "no-referrer";
         image.alt = isDuplicate ? "" : item.title || "Recent Instagram post from The Wash Company";
+        link.href = item.postUrl;
+        link.setAttribute(
+          "aria-label",
+          isDuplicate
+            ? "Instagram post"
+            : item.title || "Open Instagram post from The Wash Company"
+        );
       });
     } catch (error) {
       console.error("Unable to load Instagram feed for marquee.", error);
