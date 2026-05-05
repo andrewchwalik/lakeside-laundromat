@@ -1294,6 +1294,10 @@ main {
     margin-bottom: 2rem;
   }
 
+  .jobs-panel {
+    top: 20px;
+  }
+
   .reviews-decor {
     display: none;
   }
