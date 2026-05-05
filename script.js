@@ -5,20 +5,95 @@ const yearTarget = document.querySelector("#year");
 const jobsForm = document.querySelector("#jobs-form");
 const jobsFormStatus = document.querySelector("#jobs-form-status");
 const waterWaveSvgs = document.querySelectorAll(".wave-water .wave-svg, .footer-wave .wave-svg");
+const internalAnchorLinks = document.querySelectorAll('a[href^="#"]');
+
+const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+let scrollAnimationFrame = null;
+
+const easeInOutCubic = (t) =>
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+const getCenteredScrollTarget = (target) => {
+  const rect = target.getBoundingClientRect();
+  const currentY = window.scrollY || window.pageYOffset;
+  const viewportHeight = window.innerHeight;
+  const targetHeight = Math.min(rect.height, viewportHeight * 0.82);
+  const centeredOffset = (viewportHeight - targetHeight) / 2;
+  const destination = currentY + rect.top - centeredOffset;
+  const maxScroll = Math.max(
+    0,
+    document.documentElement.scrollHeight - viewportHeight
+  );
+
+  return Math.min(Math.max(destination, 0), maxScroll);
+};
+
+const animateWindowScroll = (destination) => {
+  if (scrollAnimationFrame) {
+    window.cancelAnimationFrame(scrollAnimationFrame);
+    scrollAnimationFrame = null;
+  }
+
+  if (reduceMotionQuery.matches) {
+    window.scrollTo(0, destination);
+    return;
+  }
+
+  const startY = window.scrollY || window.pageYOffset;
+  const distance = destination - startY;
+  const duration = 1100;
+  const startTime = performance.now();
+
+  const step = (now) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easedProgress = easeInOutCubic(progress);
+
+    window.scrollTo(0, startY + distance * easedProgress);
+
+    if (progress < 1) {
+      scrollAnimationFrame = window.requestAnimationFrame(step);
+    } else {
+      scrollAnimationFrame = null;
+    }
+  };
+
+  scrollAnimationFrame = window.requestAnimationFrame(step);
+};
+
+internalAnchorLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const href = link.getAttribute("href");
+
+    if (!href || href === "#") {
+      return;
+    }
+
+    const target = document.querySelector(href);
+
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const destination = href === "#top" ? 0 : getCenteredScrollTarget(target);
+    animateWindowScroll(destination);
+    window.history.replaceState(null, "", href);
+
+    if (siteNav && navShell && navToggle) {
+      siteNav.classList.remove("open");
+      navShell.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+});
 
 if (navToggle && siteNav && navShell) {
   navToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("open");
     navShell.classList.toggle("is-open", isOpen);
     navToggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  siteNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      siteNav.classList.remove("open");
-      navShell.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
-    });
   });
 }
 
@@ -73,7 +148,6 @@ if (jobsForm && jobsFormStatus) {
 }
 
 if (waterWaveSvgs.length) {
-  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   const SVG_WIDTH = 1440;
   let waveAnimationFrame = null;
 
