@@ -164,21 +164,24 @@ if (photoMarquee) {
         throw new Error("Feed request failed.");
       }
 
-      const xmlText = await response.text();
-      const xml = new DOMParser().parseFromString(xmlText, "text/xml");
-      const items = Array.from(xml.querySelectorAll("item"))
-        .map((item) => {
-          const mediaContent = item.querySelector("media\\:content, content");
-          const title = item.querySelector("title")?.textContent?.trim() || "";
-          const imageUrl = mediaContent?.getAttribute("url")?.trim();
+      const feed = await response.json();
+      const items = Array.isArray(feed.items)
+        ? feed.items
+            .map((item) => {
+              const imageUrl =
+                item.image?.trim() ||
+                item.attachments?.[0]?.url?.trim() ||
+                "";
+              const title = item.title?.trim() || item.content_text?.trim() || "";
 
-          if (!imageUrl) {
-            return null;
-          }
+              if (!imageUrl) {
+                return null;
+              }
 
-          return { imageUrl, title };
-        })
-        .filter(Boolean);
+              return { imageUrl, title };
+            })
+            .filter(Boolean)
+        : [];
 
       if (!items.length) {
         return;
@@ -195,6 +198,7 @@ if (photoMarquee) {
         const isDuplicate = card.hasAttribute("aria-hidden");
 
         image.src = item.imageUrl;
+        image.referrerPolicy = "no-referrer";
         image.alt = isDuplicate ? "" : item.title || "Recent Instagram post from The Wash Company";
       });
     } catch (error) {
