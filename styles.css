@@ -262,7 +262,7 @@ main {
 
 .pricing-section {
   padding-top: 6.2rem;
-  padding-bottom: calc(6.75rem + 25px);
+  padding-bottom: calc(6.75rem + 10px);
 }
 
 .about-section {
