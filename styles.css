@@ -424,6 +424,12 @@ main {
   margin-top: 0.45rem;
 }
 
+.amenity-note {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.76rem;
+  margin-top: 0.3rem;
+}
+
 .amenity-item h3 {
   max-width: 12ch;
   margin: 0 auto;
