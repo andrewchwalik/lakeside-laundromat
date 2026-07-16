@@ -17,7 +17,7 @@
         <div class="logo-frame">
           <img class="logo" src="../img/the-wash-company-logo.png" alt="The Wash Company" />
         </div>
-        <p class="eyebrow" id="service-label">Laundry Service</p>
+        <p class="eyebrow" id="service-label"><span class="location-label"></span><span class="service-name">Laundry Service</span></p>
 
         <form id="bin-form" hidden>
           <fieldset class="action-list">
@@ -25,17 +25,17 @@
             <label class="action-option action-ready">
               <input type="radio" name="action" value="ready" required />
               <span class="action-icon" aria-hidden="true">🧺</span>
-              <span><strong>Dirty laundry is ready for pickup</strong></span>
+              <span><strong>Dirty laundry is ready for pickup</strong><small>(Client use only)</small></span>
             </label>
             <label class="action-option action-picked-up">
               <input type="radio" name="action" value="picked_up" required />
               <span class="action-icon" aria-hidden="true">🚐</span>
-              <span><strong>Dirty laundry has been picked up</strong></span>
+              <span><strong>Dirty laundry has been picked up</strong><small>(The Wash Company use only)</small></span>
             </label>
             <label class="action-option action-clean">
               <input type="radio" name="action" value="clean_delivered" required />
               <span class="action-icon" aria-hidden="true">✨</span>
-              <span><strong>Clean laundry dropped off</strong></span>
+              <span><strong>Clean laundry dropped off</strong><small>(The Wash Company use only)</small></span>
             </label>
           </fieldset>
 

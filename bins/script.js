@@ -1,6 +1,6 @@
 const API_ROOT = "https://lakeside-laundromat-jobs.chwalik.workers.dev";
 const form = document.querySelector("#bin-form");
-const serviceLabel = document.querySelector("#service-label");
+const locationLabel = document.querySelector(".location-label");
 const status = document.querySelector("#status");
 const params = new URLSearchParams(window.location.search);
 const locationId = params.get("location") || "";
@@ -13,7 +13,7 @@ function setStatus(message, type = "") {
 
 async function loadLocation() {
   if (!locationId || !token) {
-    serviceLabel.textContent = "Laundry Service";
+    locationLabel.textContent = "";
     setStatus("Please scan the QR code on your location’s instruction sheet.", "error");
     return;
   }
@@ -23,11 +23,11 @@ async function loadLocation() {
     const response = await fetch(`${API_ROOT}/api/bins/location?${query}`);
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || "This link is not valid.");
-    serviceLabel.textContent = `Laundry Service | ${result.name}`;
-    document.title = `Laundry Service | ${result.name}`;
+    locationLabel.textContent = `${result.name} | `;
+    document.title = `${result.name} | Laundry Service`;
     form.hidden = false;
   } catch (error) {
-    serviceLabel.textContent = "Laundry Service";
+    locationLabel.textContent = "";
     setStatus(error.message || "Please try scanning the QR code again.", "error");
   }
 }
