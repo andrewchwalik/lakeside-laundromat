@@ -7,6 +7,23 @@ const ALLOWED_ORIGINS = new Set([
 ]);
 const INSTAGRAM_FEED_URL = "https://rss.app/feeds/v1.1/MgEgN3USbt9ulJBb.json";
 const INSTAGRAM_IMAGE_HOST_PATTERN = /(^|\.)(cdninstagram\.com|fbcdn\.net)$/i;
+const BIN_ACTIONS = {
+  ready: {
+    label: "Dirty bin ready for pickup",
+    emoji: "🧺",
+    color: 0xf59e0b,
+  },
+  picked_up: {
+    label: "Dirty bin picked up",
+    emoji: "🚐",
+    color: 0x0bb5ef,
+  },
+  clean_delivered: {
+    label: "Clean bin dropped off",
+    emoji: "✨",
+    color: 0x22c55e,
+  },
+};
 
 function buildCorsHeaders(origin) {
   const headers = {
@@ -131,6 +148,212 @@ function normalizeField(value) {
   return typeof value === "string" ? value.trim() : "";
 }
 
+function getLocations(env) {
+  try {
+    const locations = JSON.parse(env.BIN_LOCATIONS_JSON || "[]");
+    return Array.isArray(locations) ? locations : [];
+  } catch {
+    return [];
+  }
+}
+
+function findLocation(env, id, token) {
+  return getLocations(env).find(
+    (location) =>
+      location.id === id &&
+      typeof location.token === "string" &&
+      location.token.length >= 16 &&
+      location.token === token,
+  );
+}
+
+function formatEasternTime(date) {
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(date);
+}
+
+async function sendBinDiscord(
+  env,
+  location,
+  action,
+  binCount,
+  submittedBy,
+  note,
+  occurredAt,
+) {
+  const webhookUrl =
+    location.discordWebhookUrl || env.BIN_DISCORD_WEBHOOK_URL || env.DISCORD_WEBHOOK_URL;
+  if (!webhookUrl) return { ok: false, status: 0 };
+
+  const actionDetails = BIN_ACTIONS[action];
+  const fields = [
+    { name: "Location", value: location.name, inline: true },
+    { name: "Number of bins", value: String(binCount), inline: true },
+    { name: "Time", value: formatEasternTime(occurredAt), inline: true },
+  ];
+
+  if (submittedBy) fields.push({ name: "Submitted by", value: submittedBy });
+  if (note) fields.push({ name: "Note", value: note });
+
+  return fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      username: "Lakeside Bin Updates",
+      embeds: [
+        {
+          title: `${actionDetails.emoji} ${actionDetails.label}`,
+          color: actionDetails.color,
+          fields,
+          timestamp: occurredAt.toISOString(),
+          footer: { text: "Lakeside Laundromat Bin Service" },
+        },
+      ],
+    }),
+  });
+}
+
+async function sendBinEmail(
+  env,
+  location,
+  action,
+  binCount,
+  submittedBy,
+  note,
+  occurredAt,
+) {
+  const recipients = Array.isArray(location.emails)
+    ? location.emails.filter((email) => typeof email === "string" && email.includes("@"))
+    : [];
+
+  if (!recipients.length) return { ok: true };
+  // Discord can go live while a new Resend sender domain is still being verified.
+  // As soon as BIN_EMAIL_FROM is configured, owner emails begin automatically.
+  if (!env.RESEND_API_KEY || !env.BIN_EMAIL_FROM) {
+    console.warn("Bin owner email skipped because email sending is not configured.");
+    return { ok: true };
+  }
+
+  const actionDetails = BIN_ACTIONS[action];
+  const details = [
+    `<p><strong>Location:</strong> ${escapeHtml(location.name)}</p>`,
+    `<p><strong>Number of bins:</strong> ${binCount}</p>`,
+    `<p><strong>Time:</strong> ${escapeHtml(formatEasternTime(occurredAt))}</p>`,
+    submittedBy ? `<p><strong>Submitted by:</strong> ${escapeHtml(submittedBy)}</p>` : "",
+    note ? `<p><strong>Note:</strong> ${escapeHtml(note)}</p>` : "",
+  ].join("");
+
+  return fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: env.BIN_EMAIL_FROM,
+      to: recipients,
+      subject: `${actionDetails.label} — ${location.name}`,
+      html: `<div style="font-family:Arial,sans-serif;max-width:600px"><h2>${actionDetails.emoji} ${escapeHtml(actionDetails.label)}</h2>${details}<p style="color:#64748b">Sent by Lakeside Laundromat Bin Service</p></div>`,
+    }),
+  });
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+async function handleBinLocation(request, env, origin) {
+  const url = new URL(request.url);
+  const location = findLocation(
+    env,
+    normalizeField(url.searchParams.get("location")),
+    normalizeField(url.searchParams.get("token")),
+  );
+
+  if (!location) {
+    return jsonResponse({ error: "This bin-service link is not valid." }, 404, origin);
+  }
+
+  return jsonResponse({ id: location.id, name: location.name }, 200, origin);
+}
+
+async function handleBinEvent(request, env, origin) {
+  let payload;
+  try {
+    payload = await request.json();
+  } catch {
+    return jsonResponse({ error: "Invalid request." }, 400, origin);
+  }
+
+  const location = findLocation(
+    env,
+    normalizeField(payload.location),
+    normalizeField(payload.token),
+  );
+  const action = normalizeField(payload.action);
+  const binCount = Number(payload.binCount);
+  const submittedBy = normalizeField(payload.submittedBy).slice(0, 80);
+  const note = normalizeField(payload.note).slice(0, 500);
+
+  if (!location) {
+    return jsonResponse({ error: "This bin-service link is not valid." }, 404, origin);
+  }
+  if (!BIN_ACTIONS[action]) {
+    return jsonResponse({ error: "Choose a valid bin update." }, 400, origin);
+  }
+  if (!Number.isInteger(binCount) || binCount < 1 || binCount > 25) {
+    return jsonResponse({ error: "Enter a valid number of bins (1–25)." }, 400, origin);
+  }
+
+  const occurredAt = new Date();
+  let discordResult;
+  let emailResult;
+  try {
+    [discordResult, emailResult] = await Promise.all([
+      sendBinDiscord(env, location, action, binCount, submittedBy, note, occurredAt),
+      sendBinEmail(env, location, action, binCount, submittedBy, note, occurredAt),
+    ]);
+  } catch (error) {
+    console.error("Bin notification request failed", error);
+    return jsonResponse(
+      { error: "The update could not be sent. Please try again." },
+      502,
+      origin,
+    );
+  }
+
+  if (!discordResult.ok || !emailResult.ok) {
+    console.error("Bin notification failure", {
+      discordStatus: discordResult.status,
+      emailStatus: emailResult.status,
+      location: location.id,
+      action,
+    });
+    return jsonResponse(
+      { error: "The update could not be sent. Please try again." },
+      502,
+      origin,
+    );
+  }
+
+  return jsonResponse(
+    {
+      ok: true,
+      message: `${BIN_ACTIONS[action].label} recorded for ${location.name}.`,
+    },
+    200,
+    origin,
+  );
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin");
@@ -153,6 +376,14 @@ export default {
 
     if (request.method === "GET" && url.pathname === "/api/instagram-image") {
       return handleInstagramImage(request, origin);
+    }
+
+    if (request.method === "GET" && url.pathname === "/api/bins/location") {
+      return handleBinLocation(request, env, origin);
+    }
+
+    if (request.method === "POST" && url.pathname === "/api/bins/events") {
+      return handleBinEvent(request, env, origin);
     }
 
     if (request.method !== "POST" || url.pathname !== "/api/jobs") {
