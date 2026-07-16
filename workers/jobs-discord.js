@@ -191,7 +191,7 @@ async function sendBinDiscord(
   const actionDetails = BIN_ACTIONS[action];
   const fields = [
     { name: "Location", value: location.name, inline: true },
-    { name: "Number of bins", value: String(binCount), inline: true },
+    { name: "Bins", value: String(binCount), inline: true },
     { name: "Time", value: formatEasternTime(occurredAt), inline: true },
   ];
 
