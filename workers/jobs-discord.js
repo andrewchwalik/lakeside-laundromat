@@ -208,8 +208,6 @@ async function sendBinDiscord(
           title: `${actionDetails.emoji} ${actionDetails.label}`,
           color: actionDetails.color,
           fields,
-          timestamp: occurredAt.toISOString(),
-          footer: { text: "Lakeside Laundromat Bin Service" },
         },
       ],
     }),
