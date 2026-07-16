@@ -9,17 +9,17 @@ const INSTAGRAM_FEED_URL = "https://rss.app/feeds/v1.1/MgEgN3USbt9ulJBb.json";
 const INSTAGRAM_IMAGE_HOST_PATTERN = /(^|\.)(cdninstagram\.com|fbcdn\.net)$/i;
 const BIN_ACTIONS = {
   ready: {
-    label: "Dirty bin ready for pickup",
+    label: "Dirty laundry is ready for pickup",
     emoji: "🧺",
     color: 0xf59e0b,
   },
   picked_up: {
-    label: "Dirty bin picked up",
+    label: "Dirty laundry has been picked up",
     emoji: "🚐",
     color: 0x0bb5ef,
   },
   clean_delivered: {
-    label: "Clean bin dropped off",
+    label: "Clean laundry dropped off",
     emoji: "✨",
     color: 0x22c55e,
   },

@@ -1,6 +1,6 @@
 const API_ROOT = "https://lakeside-laundromat-jobs.chwalik.workers.dev";
 const form = document.querySelector("#bin-form");
-const locationName = document.querySelector("#location-name");
+const serviceLabel = document.querySelector("#service-label");
 const status = document.querySelector("#status");
 const params = new URLSearchParams(window.location.search);
 const locationId = params.get("location") || "";
@@ -13,7 +13,7 @@ function setStatus(message, type = "") {
 
 async function loadLocation() {
   if (!locationId || !token) {
-    locationName.textContent = "Invalid bin-service link";
+    serviceLabel.textContent = "Laundry Service";
     setStatus("Please scan the QR code on your location’s instruction sheet.", "error");
     return;
   }
@@ -23,10 +23,11 @@ async function loadLocation() {
     const response = await fetch(`${API_ROOT}/api/bins/location?${query}`);
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || "This link is not valid.");
-    locationName.textContent = result.name;
+    serviceLabel.textContent = `Laundry Service | ${result.name}`;
+    document.title = `Laundry Service | ${result.name}`;
     form.hidden = false;
   } catch (error) {
-    locationName.textContent = "Unable to open this location";
+    serviceLabel.textContent = "Laundry Service";
     setStatus(error.message || "Please try scanning the QR code again.", "error");
   }
 }
@@ -55,8 +56,6 @@ form.addEventListener("submit", async (event) => {
         token,
         action,
         binCount: Number(data.get("binCount")),
-        submittedBy: data.get("submittedBy"),
-        note: data.get("note"),
       }),
     });
     const result = await response.json();

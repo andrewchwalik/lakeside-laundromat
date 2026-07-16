@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#064e6f" />
-    <title>Laundry Bin Update | Lakeside Laundromat</title>
+    <title>Laundry Service | The Wash Company</title>
     <link rel="icon" type="image/png" href="../img/lakeside-laundromat-favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,11 +13,11 @@
   </head>
   <body>
     <main class="app-shell">
-      <section class="bin-card" aria-labelledby="page-title">
-        <img class="logo" src="../img/lakeside-laundromat-logo.png" alt="Lakeside Laundromat" />
-        <p class="eyebrow">Laundry bin service</p>
-        <h1 id="page-title">What happened with the bin?</h1>
-        <p class="location" id="location-name">Checking this location…</p>
+      <section class="bin-card" aria-labelledby="service-label">
+        <div class="logo-frame">
+          <img class="logo" src="../img/the-wash-company-logo.png" alt="The Wash Company" />
+        </div>
+        <p class="eyebrow" id="service-label">Laundry Service</p>
 
         <form id="bin-form" hidden>
           <fieldset class="action-list">
@@ -25,17 +25,17 @@
             <label class="action-option action-ready">
               <input type="radio" name="action" value="ready" required />
               <span class="action-icon" aria-hidden="true">🧺</span>
-              <span><strong>Dirty bin is ready</strong><small>Please pick it up</small></span>
+              <span><strong>Dirty laundry is ready for pickup</strong></span>
             </label>
             <label class="action-option action-picked-up">
               <input type="radio" name="action" value="picked_up" required />
               <span class="action-icon" aria-hidden="true">🚐</span>
-              <span><strong>Dirty bin picked up</strong><small>It’s headed to the laundromat</small></span>
+              <span><strong>Dirty laundry has been picked up</strong></span>
             </label>
             <label class="action-option action-clean">
               <input type="radio" name="action" value="clean_delivered" required />
               <span class="action-icon" aria-hidden="true">✨</span>
-              <span><strong>Clean bin dropped off</strong><small>Laundry has been returned</small></span>
+              <span><strong>Clean laundry dropped off</strong></span>
             </label>
           </fieldset>
 
@@ -43,15 +43,6 @@
             <span>Number of bins</span>
             <input name="binCount" type="number" min="1" max="25" inputmode="numeric" pattern="[0-9]*" placeholder="1" required />
           </label>
-          <label class="text-field">
-            <span>Your name or initials <small>(optional)</small></span>
-            <input name="submittedBy" type="text" maxlength="80" autocomplete="name" placeholder="e.g. AC" />
-          </label>
-          <label class="text-field">
-            <span>Note <small>(optional)</small></span>
-            <textarea name="note" maxlength="500" rows="2" placeholder="Anything the team should know?"></textarea>
-          </label>
-
           <button class="submit-button" type="submit">Send bin update</button>
         </form>
 
