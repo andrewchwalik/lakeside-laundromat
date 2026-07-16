@@ -309,8 +309,8 @@ async function handleBinEvent(request, env, origin) {
   if (!BIN_ACTIONS[action]) {
     return jsonResponse({ error: "Choose a valid bin update." }, 400, origin);
   }
-  if (!Number.isInteger(binCount) || binCount < 1 || binCount > 25) {
-    return jsonResponse({ error: "Enter a valid number of bins (1–25)." }, 400, origin);
+  if (!Number.isInteger(binCount) || binCount < 1 || binCount > 5) {
+    return jsonResponse({ error: "Choose a valid number of bins (1–5)." }, 400, origin);
   }
 
   const occurredAt = new Date();

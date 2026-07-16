@@ -20,7 +20,14 @@ body { margin: 0; min-height: 100vh; background: radial-gradient(circle at top, 
 .text-field small { color: #688491; font-weight: 400; }
 .text-field input, .text-field textarea { width: 100%; padding: 13px 14px; border: 2px solid #d9e9ee; border-radius: 12px; background: #fff; color: #103449; font: inherit; resize: vertical; }
 .text-field input:focus, .text-field textarea:focus { border-color: #079dcc; outline: 3px solid rgba(7, 157, 204, .14); }
-.bin-count-field input { min-height: 62px; font-size: 1.5rem; font-weight: 700; text-align: center; }
+.bin-count-field { margin: 17px 0 0; padding: 0; border: 0; }
+.bin-count-field legend { margin-bottom: 8px; font-weight: 600; }
+.bin-count-options { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.bin-count-options label { cursor: pointer; }
+.bin-count-options input { position: absolute; opacity: 0; pointer-events: none; }
+.bin-count-options span { display: grid; min-height: 54px; place-items: center; border: 2px solid #d9e9ee; border-radius: 12px; background: #fff; color: #103449; font-size: 1.3rem; font-weight: 700; transition: border-color .15s, background .15s, color .15s; }
+.bin-count-options input:checked + span { border-color: #078fbc; background: #078fbc; color: #fff; }
+.bin-count-options input:focus-visible + span { outline: 3px solid rgba(7, 157, 204, .25); outline-offset: 2px; }
 .submit-button { width: 100%; margin-top: 20px; padding: 15px 20px; border: 0; border-radius: 14px; background: #087ea4; color: #fff; font: 700 1.08rem "Outfit", sans-serif; cursor: pointer; box-shadow: 0 8px 18px rgba(8,126,164,.22); }
 .submit-button:hover { background: #066b8c; }
 .submit-button:disabled { opacity: .58; cursor: wait; }

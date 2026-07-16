@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260716-2" />
+    <link rel="stylesheet" href="styles.css?v=20260716-3" />
   </head>
   <body>
     <main class="app-shell">
@@ -39,16 +39,22 @@
             </label>
           </fieldset>
 
-          <label class="text-field bin-count-field">
-            <span>Number of bins</span>
-            <input name="binCount" type="number" min="1" max="25" inputmode="numeric" pattern="[0-9]*" placeholder="1" required />
-          </label>
+          <fieldset class="bin-count-field">
+            <legend>Number of bins</legend>
+            <div class="bin-count-options">
+              <label><input type="radio" name="binCount" value="1" required /><span>1</span></label>
+              <label><input type="radio" name="binCount" value="2" /><span>2</span></label>
+              <label><input type="radio" name="binCount" value="3" /><span>3</span></label>
+              <label><input type="radio" name="binCount" value="4" /><span>4</span></label>
+              <label><input type="radio" name="binCount" value="5" /><span>5</span></label>
+            </div>
+          </fieldset>
           <button class="submit-button" type="submit">Send bin update</button>
         </form>
 
         <div class="status" id="status" role="status" aria-live="polite"></div>
       </section>
     </main>
-    <script src="script.js?v=20260716-2"></script>
+    <script src="script.js?v=20260716-3"></script>
   </body>
 </html>
