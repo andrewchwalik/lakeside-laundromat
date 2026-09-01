@@ -167,6 +167,130 @@ function findLocation(env, id, token) {
   );
 }
 
+function getWeightClients(env) {
+  try {
+    const clients = JSON.parse(env.WEIGHT_CLIENTS_JSON || "[]");
+    return Array.isArray(clients) ? clients : [];
+  } catch {
+    return [];
+  }
+}
+
+function findWeightClient(env, id, token) {
+  return getWeightClients(env).find(
+    (client) =>
+      client.id === id &&
+      typeof client.token === "string" &&
+      client.token.length >= 16 &&
+      client.token === token,
+  );
+}
+
+function publicWeightClient(client) {
+  return {
+    id: client.id,
+    name: client.name,
+    usesBins: Boolean(client.usesBins),
+    rate: Number(client.rate),
+    binWeights: client.usesBins ? { Green: 37, Blue: 66 } : {},
+  };
+}
+
+async function handleWeightClient(request, env, origin) {
+  const url = new URL(request.url);
+  const client = findWeightClient(
+    env,
+    normalizeField(url.searchParams.get("client")),
+    normalizeField(url.searchParams.get("token")),
+  );
+
+  if (!client) {
+    return jsonResponse({ error: "This weight-entry link is not valid." }, 404, origin);
+  }
+
+  return jsonResponse(publicWeightClient(client), 200, origin);
+}
+
+async function handleWeightEntry(request, env, origin) {
+  let payload;
+  try {
+    payload = await request.json();
+  } catch {
+    return jsonResponse({ error: "Invalid request." }, 400, origin);
+  }
+
+  const client = findWeightClient(
+    env,
+    normalizeField(payload.client),
+    normalizeField(payload.token),
+  );
+  if (!client) {
+    return jsonResponse({ error: "This weight-entry link is not valid." }, 404, origin);
+  }
+
+  const weight = Number(payload.weight);
+  const binColor = normalizeField(payload.binColor);
+  if (!Number.isFinite(weight) || weight <= 0 || weight > 2000) {
+    return jsonResponse({ error: "Enter a valid weight." }, 400, origin);
+  }
+  if (client.usesBins && !["Green", "Blue"].includes(binColor)) {
+    return jsonResponse({ error: "Choose a valid bin color." }, 400, origin);
+  }
+
+  const binWeight = binColor === "Green" ? 37 : binColor === "Blue" ? 66 : 0;
+  if (client.usesBins && weight <= binWeight) {
+    return jsonResponse(
+      { error: "The total weight must be greater than the empty bin weight." },
+      400,
+      origin,
+    );
+  }
+  if (!env.WEIGHT_APPS_SCRIPT_URL || !env.WEIGHT_WRITER_SECRET) {
+    console.error("Weight entry is not configured.");
+    return jsonResponse({ error: "Weight entry is not configured yet." }, 503, origin);
+  }
+
+  let writerResponse;
+  try {
+    writerResponse = await fetch(env.WEIGHT_APPS_SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        secret: env.WEIGHT_WRITER_SECRET,
+        sheetName: client.sheetName,
+        usesBins: Boolean(client.usesBins),
+        weight,
+        binColor,
+      }),
+    });
+  } catch (error) {
+    console.error("Weight writer request failed", error);
+    return jsonResponse({ error: "The weight could not be saved. Please try again." }, 502, origin);
+  }
+
+  if (!writerResponse.ok) {
+    console.error("Weight writer HTTP failure", writerResponse.status);
+    return jsonResponse({ error: "The weight could not be saved. Please try again." }, 502, origin);
+  }
+
+  let writerResult;
+  try {
+    writerResult = await writerResponse.json();
+  } catch {
+    writerResult = { ok: false };
+  }
+  if (!writerResult.ok) {
+    console.error("Weight writer rejected entry", writerResult.error);
+    return jsonResponse({ error: "The weight could not be saved. Please try again." }, 502, origin);
+  }
+
+  return jsonResponse(
+    { ok: true, message: `${client.name} weight saved.` },
+    200,
+    origin,
+  );
+}
+
 function formatEasternTime(date) {
   return new Intl.DateTimeFormat("en-US", {
     timeZone: "America/New_York",
@@ -382,6 +506,14 @@ export default {
 
     if (request.method === "POST" && url.pathname === "/api/bins/events") {
       return handleBinEvent(request, env, origin);
+    }
+
+    if (request.method === "GET" && url.pathname === "/api/weights/client") {
+      return handleWeightClient(request, env, origin);
+    }
+
+    if (request.method === "POST" && url.pathname === "/api/weights/entries") {
+      return handleWeightEntry(request, env, origin);
     }
 
     if (request.method !== "POST" || url.pathname !== "/api/jobs") {
