@@ -29,7 +29,7 @@ function doPost(event) {
     const entryWidth = usesBins ? 7 : 4;
 
     const firstEntryRow = 4;
-    const lastEntryRow = 1003;
+    const lastEntryRow = 2003;
     const dateValues = sheet
       .getRange(firstEntryRow, 1, lastEntryRow - firstEntryRow + 1, 1)
       .getValues();
