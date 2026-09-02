@@ -28,22 +28,43 @@ function doPost(event) {
     const usesBins = Boolean(payload.usesBins);
     const entryWidth = usesBins ? 7 : 4;
 
-    sheet.getRange(4, 1, 1, entryWidth).insertCells(SpreadsheetApp.Dimension.ROWS);
-    sheet.getRange(5, 1, 1, entryWidth).copyTo(sheet.getRange(4, 1, 1, entryWidth));
+    const firstEntryRow = 4;
+    const lastEntryRow = 1003;
+    const dateValues = sheet
+      .getRange(firstEntryRow, 1, lastEntryRow - firstEntryRow + 1, 1)
+      .getValues();
+    const firstBlankIndex = dateValues.findIndex(([value]) => value === "" || value === null);
+
+    if (firstBlankIndex === -1) {
+      return json_({ ok: false, error: "The entry table is full." });
+    }
+
+    const targetRow = firstEntryRow + firstBlankIndex;
+    const existingEntryCount = dateValues.filter(([value]) => value !== "" && value !== null).length;
+
+    if (targetRow !== firstEntryRow) {
+      sheet
+        .getRange(firstEntryRow, 1, 1, entryWidth)
+        .copyTo(sheet.getRange(targetRow, 1, 1, entryWidth));
+    }
 
     const date = new Date();
-    const dateCell = sheet.getRange(4, 1);
+    const dateCell = sheet.getRange(targetRow, 1);
     dateCell.setValue(date);
     dateCell.setNumberFormat("MM/dd/yyyy");
 
     if (usesBins) {
-      sheet.getRange(4, 2).setValue(payload.binColor);
-      sheet.getRange(4, 4).setValue(Number(payload.weight));
-      sheet.getRange(4, 7).setValue(false);
+      sheet.getRange(targetRow, 2).setValue(payload.binColor);
+      sheet.getRange(targetRow, 4).setValue(Number(payload.weight));
+      sheet.getRange(targetRow, 7).setValue(false);
     } else {
-      sheet.getRange(4, 2).setValue(Number(payload.weight));
-      sheet.getRange(4, 4).setValue(false);
+      sheet.getRange(targetRow, 2).setValue(Number(payload.weight));
+      sheet.getRange(targetRow, 4).setValue(false);
     }
+
+    sheet
+      .getRange(firstEntryRow, 1, existingEntryCount + 1, entryWidth)
+      .sort({ column: 1, ascending: false });
 
     SpreadsheetApp.flush();
     return json_({ ok: true });
