@@ -1,0 +1,20 @@
+name = "lakeside-instagram"
+main = "worker.mjs"
+account_id = "44e5761c07f2d2b065b5ca9ecee6539a"
+compatibility_date = "2026-11-12"
+workers_dev = true
+preview_urls = false
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "f711dfe1ca66477287629cb9b704929e"
+
+[vars]
+APIFY_TASK_ID = "ax1BqVsgeKFG4LyBG"
+INSTAGRAM_HANDLE = "thewashcomp"
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true
